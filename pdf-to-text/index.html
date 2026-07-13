@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to Text Free — MyPDFConvert</title>
+<meta name="description" content="Extract readable text from a PDF file, free and in your browser.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="../"><span>My</span>PDFConvert</a>
+  <nav><a href="../">All Tools</a></nav>
+</header>
+
+<div class="tool-page">
+  <h1>PDF to Text</h1>
+  <p class="desc">Pull the readable text out of a PDF into a plain .txt file. Works best on text-based PDFs, not scanned images.</p>
+
+  <div class="dropzone" id="dz">
+    <span class="dz-icon">📝</span>
+    <span class="dz-text">Tap to choose a PDF file</span>
+    <span class="dz-sub">or drag and drop</span>
+    <input type="file" id="fileInput" accept="application/pdf">
+  </div>
+
+  <div class="file-list" id="fileList"></div>
+
+  <button class="btn-primary" id="runBtn" disabled>Extract Text</button>
+
+  <div class="status" id="status"></div>
+
+  <div class="result" id="result">
+    <div>✅ Your text file is ready</div>
+    <a class="download" id="downloadLink" download="extracted.txt">Download .txt</a>
+  </div>
+
+  <p class="privacy-note"><b>100% private.</b> Extraction happens locally in your browser — nothing is uploaded anywhere.</p>
+</div>
+
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+
+<script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script src="pdf-to-text.js"></script>
+</body>
+</html>
