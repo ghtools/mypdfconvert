@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compress PDF Free — MyPDFConvert</title>
+<meta name="description" content="Reduce the file size of a PDF, free and in your browser.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="../"><span>My</span>PDFConvert</a>
+  <nav><a href="../">All Tools</a></nav>
+</header>
+
+<div class="tool-page">
+  <h1>Compress PDF</h1>
+  <p class="desc">Shrinks file size by re-compressing each page's images. Best for image-heavy or scanned PDFs; already-optimized text PDFs may not shrink much.</p>
+
+  <div class="dropzone" id="dz">
+    <span class="dz-icon">📦</span>
+    <span class="dz-text">Tap to choose a PDF file</span>
+    <span class="dz-sub">or drag and drop</span>
+    <input type="file" id="fileInput" accept="application/pdf">
+  </div>
+
+  <div class="file-list" id="fileList"></div>
+
+  <div class="options" id="options" style="display:none;">
+    <label>
+      Compression level
+      <select id="level">
+        <option value="0.8">Low (better quality)</option>
+        <option value="0.6" selected>Medium (recommended)</option>
+        <option value="0.35">High (smallest file)</option>
+      </select>
+    </label>
+  </div>
+
+  <button class="btn-primary" id="runBtn" disabled>Compress PDF</button>
+
+  <div class="progress-wrap" id="progWrap"><div class="progress-bar" id="progBar"></div></div>
+  <div class="status" id="status"></div>
+
+  <div class="result" id="result">
+    <div id="resultText">✅ Your compressed PDF is ready</div>
+    <a class="download" id="downloadLink" download="compressed.pdf">Download PDF</a>
+  </div>
+
+  <p class="privacy-note"><b>100% private.</b> Compression happens locally in your browser — nothing is uploaded anywhere.</p>
+</div>
+
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+
+<script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="compress.js"></script>
+</body>
+</html>
