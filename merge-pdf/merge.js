@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merge PDF Files Free — MyPDFConvert</title>
+<meta name="description" content="Combine multiple PDF files into one, free and in your browser. No upload, no signup.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="../"><span>My</span>PDFConvert</a>
+  <nav><a href="../">All Tools</a></nav>
+</header>
+
+<div class="tool-page">
+  <h1>Merge PDF</h1>
+  <p class="desc">Combine two or more PDF files into a single document. Drag to reorder before merging.</p>
+
+  <div class="dropzone" id="dz">
+    <span class="dz-icon">🧩</span>
+    <span class="dz-text">Tap to choose PDF files</span>
+    <span class="dz-sub">or drag and drop — choose 2 or more</span>
+    <input type="file" id="fileInput" accept="application/pdf" multiple>
+  </div>
+
+  <div class="file-list" id="fileList"></div>
+
+  <button class="btn-primary" id="runBtn" disabled>Merge PDFs</button>
+
+  <div class="progress-wrap" id="progWrap"><div class="progress-bar" id="progBar"></div></div>
+  <div class="status" id="status"></div>
+
+  <div class="result" id="result">
+    <div>✅ Your merged PDF is ready</div>
+    <a class="download" id="downloadLink" download="merged.pdf">Download PDF</a>
+  </div>
+
+  <p class="privacy-note"><b>100% private.</b> Your files are merged locally in your browser — nothing is uploaded anywhere.</p>
+</div>
+
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="merge.js"></script>
+</body>
+</html>
