@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JPG to PDF Free — MyPDFConvert</title>
+<meta name="description" content="Combine JPG or PNG images into a single PDF, free and in your browser.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="../"><span>My</span>PDFConvert</a>
+  <nav><a href="../">All Tools</a></nav>
+</header>
+
+<div class="tool-page">
+  <h1>JPG to PDF</h1>
+  <p class="desc">Choose one or more images. Each image becomes a page, in the order shown below — drag to reorder.</p>
+
+  <div class="dropzone" id="dz">
+    <span class="dz-icon">🖼️</span>
+    <span class="dz-text">Tap to choose images</span>
+    <span class="dz-sub">JPG or PNG — choose one or more</span>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png" multiple>
+  </div>
+
+  <div class="file-list" id="fileList"></div>
+
+  <button class="btn-primary" id="runBtn" disabled>Convert to PDF</button>
+
+  <div class="progress-wrap" id="progWrap"><div class="progress-bar" id="progBar"></div></div>
+  <div class="status" id="status"></div>
+
+  <div class="result" id="result">
+    <div>✅ Your PDF is ready</div>
+    <a class="download" id="downloadLink" download="images.pdf">Download PDF</a>
+  </div>
+
+  <p class="privacy-note"><b>100% private.</b> Conversion happens locally in your browser — nothing is uploaded anywhere.</p>
+</div>
+
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="jpg-to-pdf.js"></script>
+</body>
+  </html>
