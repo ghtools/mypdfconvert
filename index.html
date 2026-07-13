@@ -1,173 +1,85 @@
-:root{
-  --bg:#0B0B0F;
-  --bg-elev:#131318;
-  --border:#22222b;
-  --text:#EAEAF0;
-  --text-dim:#9797a8;
-  --cyan:#00E5FF;
-  --blue:#4D7CFF;
-  --pink:#FF3CAC;
-  --radius:14px;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-  line-height:1.5;
-  min-height:100vh;
-}
-a{color:inherit;text-decoration:none;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyPDFConvert — Free Online PDF Tools</title>
+<meta name="description" content="Merge, split, compress, convert and edit PDF files free online. Fast, private, works right in your browser — no upload to any server.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo"><span>My</span>PDFConvert</div>
+  <nav>
+    <a href="#tools">Tools</a>
+  </nav>
+</header>
 
-/* Header */
-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 20px;
-  border-bottom:1px solid var(--border);
-  position:sticky;top:0;
-  background:rgba(11,11,15,0.85);
-  backdrop-filter:blur(10px);
-  z-index:100;
-}
-.logo{
-  font-weight:800;font-size:1.25rem;
-  background:linear-gradient(90deg,var(--cyan),var(--blue));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.logo span{color:var(--text);-webkit-text-fill-color:var(--text);}
-nav a{color:var(--text-dim);font-size:.9rem;margin-left:18px;}
-nav a:hover{color:var(--cyan);}
+<section class="hero">
+  <h1>Every PDF tool you need, <span class="grad">in one place</span></h1>
+  <p>Free, fast, and private — files are processed right in your browser. Nothing is uploaded to a server.</p>
+</section>
 
-/* Hero */
-.hero{
-  text-align:center;
-  padding:56px 20px 40px;
-}
-.hero h1{
-  font-size:2rem;
-  font-weight:800;
-  margin-bottom:12px;
-  letter-spacing:-0.02em;
-}
-.hero h1 .grad{
-  background:linear-gradient(90deg,var(--cyan),var(--pink));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.hero p{color:var(--text-dim);font-size:1rem;max-width:520px;margin:0 auto;}
+<div class="grid" id="tools">
+  <a class="tool-card" href="merge-pdf/">
+    <span class="icon">🧩</span>
+    <span class="name">Merge PDF</span>
+    <span class="tag">Combine files into one</span>
+  </a>
+  <a class="tool-card" href="split-pdf/">
+    <span class="icon">✂️</span>
+    <span class="name">Split PDF</span>
+    <span class="tag">Extract or separate pages</span>
+  </a>
+  <a class="tool-card" href="compress-pdf/">
+    <span class="icon">📦</span>
+    <span class="name">Compress PDF</span>
+    <span class="tag">Reduce file size</span>
+  </a>
+  <a class="tool-card" href="rotate-pdf/">
+    <span class="icon">🔄</span>
+    <span class="name">Rotate PDF</span>
+    <span class="tag">Fix page orientation</span>
+  </a>
+  <a class="tool-card" href="jpg-to-pdf/">
+    <span class="icon">🖼️</span>
+    <span class="name">JPG to PDF</span>
+    <span class="tag">Images into one PDF</span>
+  </a>
+  <a class="tool-card" href="pdf-to-jpg/">
+    <span class="icon">📷</span>
+    <span class="name">PDF to JPG</span>
+    <span class="tag">Pages into images</span>
+  </a>
+  <a class="tool-card" href="pdf-to-text/">
+    <span class="icon">📝</span>
+    <span class="name">PDF to Text</span>
+    <span class="tag">Extract readable text</span>
+  </a>
+  <a class="tool-card" href="pdf-to-word/">
+    <span class="icon">📄</span>
+    <span class="name">PDF to Word</span>
+    <span class="tag">Editable .docx</span>
+    <span class="badge-soon">Coming soon</span>
+  </a>
+  <a class="tool-card" href="protect-pdf/">
+    <span class="icon">🔒</span>
+    <span class="name">Protect PDF</span>
+    <span class="tag">Add a password</span>
+    <span class="badge-soon">Coming soon</span>
+  </a>
+  <a class="tool-card" href="unlock-pdf/">
+    <span class="icon">🔓</span>
+    <span class="name">Unlock PDF</span>
+    <span class="tag">Remove a password</span>
+    <span class="badge-soon">Coming soon</span>
+  </a>
+</div>
 
-/* Tool grid */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-  gap:14px;
-  max-width:1000px;
-  margin:0 auto;
-  padding:10px 20px 60px;
-}
-.tool-card{
-  background:var(--bg-elev);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:20px 14px;
-  text-align:center;
-  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-}
-.tool-card:hover{
-  transform:translateY(-3px);
-  border-color:var(--cyan);
-  box-shadow:0 8px 24px rgba(0,229,255,0.08);
-}
-.tool-card .icon{font-size:1.8rem;margin-bottom:8px;display:block;}
-.tool-card .name{font-weight:600;font-size:.92rem;}
-.tool-card .tag{display:block;font-size:.72rem;color:var(--text-dim);margin-top:4px;}
-.badge-soon{
-  display:inline-block;margin-top:6px;font-size:.65rem;
-  background:rgba(255,60,172,0.12);color:var(--pink);
-  padding:2px 8px;border-radius:20px;
-}
+<p class="privacy-note" style="max-width:600px;margin:0 auto 40px;">
+  <b>Your files never leave your device.</b> All tools above run locally in your browser using JavaScript — no file is uploaded to any server, so your documents stay private.
+</p>
 
-/* Tool page */
-.tool-page{max-width:640px;margin:0 auto;padding:40px 20px 80px;}
-.tool-page h1{font-size:1.5rem;margin-bottom:6px;}
-.tool-page .desc{color:var(--text-dim);margin-bottom:28px;font-size:.92rem;}
-
-.dropzone{
-  border:2px dashed var(--border);
-  border-radius:var(--radius);
-  padding:40px 20px;
-  text-align:center;
-  cursor:pointer;
-  transition:border-color .15s ease, background .15s ease;
-  background:var(--bg-elev);
-}
-.dropzone.drag{border-color:var(--cyan);background:rgba(0,229,255,0.05);}
-.dropzone .dz-icon{font-size:2.2rem;margin-bottom:10px;display:block;}
-.dropzone .dz-text{font-weight:600;}
-.dropzone .dz-sub{color:var(--text-dim);font-size:.82rem;margin-top:4px;}
-input[type=file]{display:none;}
-
-.file-list{margin-top:18px;display:flex;flex-direction:column;gap:8px;}
-.file-item{
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--bg-elev);border:1px solid var(--border);
-  border-radius:10px;padding:10px 14px;font-size:.85rem;
-}
-.file-item .fname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70%;}
-.file-item .remove{color:var(--pink);cursor:pointer;font-weight:700;}
-.file-item.dragrow{cursor:grab;}
-
-.options{margin-top:20px;display:flex;flex-direction:column;gap:12px;}
-.options label{font-size:.85rem;color:var(--text-dim);}
-.options input[type=text],.options input[type=password],.options select{
-  width:100%;padding:10px 12px;border-radius:10px;
-  background:var(--bg-elev);border:1px solid var(--border);color:var(--text);
-  font-size:.9rem;margin-top:4px;
-}
-
-.btn-primary{
-  margin-top:24px;width:100%;padding:14px;border:none;border-radius:12px;
-  background:linear-gradient(90deg,var(--cyan),var(--blue));
-  color:#04141a;font-weight:700;font-size:1rem;cursor:pointer;
-  transition:opacity .15s ease;
-}
-.btn-primary:disabled{opacity:.4;cursor:not-allowed;}
-.btn-primary:not(:disabled):active{opacity:.8;}
-
-.status{margin-top:16px;font-size:.85rem;color:var(--text-dim);text-align:center;}
-.status.err{color:var(--pink);}
-.status.ok{color:var(--cyan);}
-
-.result{
-  margin-top:20px;padding:18px;border-radius:var(--radius);
-  background:var(--bg-elev);border:1px solid var(--border);
-  text-align:center;display:none;
-}
-.result.show{display:block;}
-.result a.download{
-  display:inline-block;margin-top:10px;padding:12px 24px;border-radius:10px;
-  background:linear-gradient(90deg,var(--cyan),var(--pink));
-  color:#0B0B0F;font-weight:700;font-size:.9rem;
-}
-
-.progress-wrap{margin-top:16px;height:6px;background:var(--bg-elev);border-radius:6px;overflow:hidden;display:none;}
-.progress-wrap.show{display:block;}
-.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--pink));transition:width .2s ease;}
-
-.privacy-note{
-  margin-top:30px;font-size:.78rem;color:var(--text-dim);
-  text-align:center;line-height:1.6;
-}
-.privacy-note b{color:var(--text);}
-
-footer{
-  text-align:center;padding:30px 20px;color:var(--text-dim);
-  font-size:.8rem;border-top:1px solid var(--border);
-}
-
-@media(max-width:480px){
-  .grid{grid-template-columns:repeat(3,1fr);gap:10px;}
-  .tool-card{padding:14px 8px;}
-  .tool-card .name{font-size:.78rem;}
-  .tool-card .tag{display:none;}
-  .hero h1{font-size:1.5rem;}
-}
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+</body>
+  </html>
