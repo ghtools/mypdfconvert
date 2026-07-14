@@ -1,0 +1,152 @@
+/* ===== Phase 1: Homepage additions ===== */
+
+.skip-link{
+  position:absolute;left:-9999px;top:0;
+  background:var(--cyan);color:#04141a;padding:10px 16px;
+  border-radius:0 0 8px 0;font-weight:700;z-index:1000;
+}
+.skip-link:focus{left:0;}
+
+*:focus-visible{
+  outline:2px solid var(--cyan);
+  outline-offset:2px;
+}
+
+/* Mobile nav toggle */
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;border:none;cursor:pointer;padding:6px;
+}
+.nav-toggle span{
+  width:22px;height:2px;background:var(--text);border-radius:2px;
+}
+
+@media(max-width:720px){
+  .nav-toggle{display:flex;}
+  header nav{
+    position:fixed;top:64px;left:0;right:0;
+    background:var(--bg-elev);
+    border-bottom:1px solid var(--border);
+    flex-direction:column;
+    padding:10px 20px;
+    display:none;
+    gap:2px;
+  }
+  header nav.open{display:flex;}
+  header nav a{
+    margin-left:0;padding:12px 0;
+    border-bottom:1px solid var(--border);
+    font-size:1rem;
+  }
+}
+
+/* Hero actions */
+.hero-actions{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  margin-top:24px;
+}
+.btn-hero-primary, .btn-hero-secondary{
+  padding:14px 26px;border-radius:12px;font-weight:700;font-size:.95rem;
+  transition:transform .15s ease, opacity .15s ease;
+}
+.btn-hero-primary{
+  background:linear-gradient(90deg,var(--cyan),var(--blue));
+  color:#04141a;
+}
+.btn-hero-secondary{
+  background:var(--bg-elev);
+  border:1px solid var(--border);
+  color:var(--text);
+}
+.btn-hero-primary:active, .btn-hero-secondary:active{transform:scale(.97);}
+
+.trust-badges{
+  list-style:none;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:16px;
+  margin-top:28px;
+  font-size:.8rem;color:var(--text-dim);
+}
+.trust-badges li{white-space:nowrap;}
+
+/* Section headings */
+.tools-section, .why-section, .how-section, .soon-section, .faq-section, .ecosystem-section{
+  max-width:1000px;margin:0 auto;padding:50px 20px;
+}
+.tools-section h2, .why-section h2, .how-section h2, .soon-section h2, .faq-section h2, .ecosystem-section h2{
+  font-size:1.4rem;font-weight:800;text-align:center;margin-bottom:28px;
+}
+
+.open-tool{
+  display:inline-block;margin-top:10px;padding:8px 16px;
+  border-radius:8px;font-size:.8rem;font-weight:700;
+  background:linear-gradient(90deg,var(--cyan),var(--blue));
+  color:#04141a;
+}
+.tool-card:focus-within{border-color:var(--cyan);}
+
+/* Why choose us */
+.why-grid{
+  list-style:none;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:10px;
+}
+.why-grid li{
+  background:var(--bg-elev);border:1px solid var(--border);
+  border-radius:10px;padding:14px 10px;text-align:center;
+  font-size:.82rem;font-weight:600;
+}
+
+/* How it works */
+.how-steps{
+  list-style:none;
+  display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+  text-align:center;
+}
+.how-steps li{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:160px;}
+.step-num{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+  color:#0B0B0F;font-weight:800;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.step-text{font-size:.85rem;color:var(--text-dim);}
+
+/* Coming soon cards already share .tool-card, .is-soon just for semantics */
+
+/* FAQ */
+.faq-list{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.faq-list details{
+  background:var(--bg-elev);border:1px solid var(--border);
+  border-radius:10px;padding:14px 16px;
+}
+.faq-list summary{
+  font-weight:600;cursor:pointer;font-size:.92rem;
+}
+.faq-list p{margin-top:10px;color:var(--text-dim);font-size:.85rem;line-height:1.6;}
+
+/* Ecosystem cards */
+.grid-ecosystem{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:14px;
+}
+.eco-card{
+  display:block;
+  background:var(--bg-elev);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px 16px;text-align:center;
+  transition:transform .15s ease, border-color .15s ease;
+}
+.eco-card:hover, .eco-card:focus-visible{
+  transform:translateY(-3px);border-color:var(--pink);
+}
+.eco-card h3{margin-top:8px;font-size:1rem;}
+.eco-card p{margin-top:4px;font-size:.8rem;color:var(--text-dim);}
+
+/* Footer nav */
+.footer-nav{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:16px;
+  margin-bottom:14px;font-size:.82rem;
+}
+.footer-nav a{color:var(--text-dim);}
+.footer-nav a:hover{color:var(--cyan);}
