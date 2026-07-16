@@ -8,6 +8,7 @@ const status = document.getElementById('status');
 const progWrap = document.getElementById('progWrap');
 const progBar = document.getElementById('progBar');
 const result = document.getElementById('result');
+const resultMsg = document.getElementById('resultMsg');
 const downloadLink = document.getElementById('downloadLink');
 
 let file = null;
@@ -34,8 +35,9 @@ runBtn.addEventListener('click', async () => {
   try{
     const arrayBuffer = await file.arrayBuffer();
     const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-    const zip = new JSZip();
     const numPages = pdf.numPages;
+    const pageBlobs = [];
+
     for(let i=1;i<=numPages;i++){
       const page = await pdf.getPage(i);
       const viewport = page.getViewport({ scale: 2 });
@@ -45,11 +47,25 @@ runBtn.addEventListener('click', async () => {
       const ctx = canvas.getContext('2d');
       await page.render({ canvasContext: ctx, viewport }).promise;
       const blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.92));
-      zip.file(`page-${i}.jpg`, blob);
+      pageBlobs.push(blob);
       progBar.style.width = `${Math.round((i/numPages)*100)}%`;
     }
-    const zipBlob = await zip.generateAsync({ type: 'blob' });
-    downloadLink.href = URL.createObjectURL(zipBlob);
+
+    if(numPages === 1){
+      downloadLink.href = URL.createObjectURL(pageBlobs[0]);
+      downloadLink.download = 'page-1.jpg';
+      downloadLink.textContent = 'Download JPG';
+      resultMsg.textContent = '✅ Your image is ready';
+    } else {
+      const zip = new JSZip();
+      pageBlobs.forEach((blob, idx) => zip.file(`page-${idx+1}.jpg`, blob));
+      const zipBlob = await zip.generateAsync({ type: 'blob' });
+      downloadLink.href = URL.createObjectURL(zipBlob);
+      downloadLink.download = 'pages.zip';
+      downloadLink.textContent = 'Download ZIP';
+      resultMsg.textContent = '✅ Your images are ready';
+    }
+
     result.classList.add('show');
     status.textContent = '';
   }catch(err){
