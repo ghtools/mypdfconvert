@@ -50,4 +50,40 @@ function enableDrag(){
   let dragSrc = null;
   fileList.querySelectorAll('.dragrow').forEach(row => {
     row.addEventListener('dragstart', () => { dragSrc = row; });
-    row.addEventListener('dragover', e => e.preventDefault
+    row.addEventListener('dragover', e => e.preventDefault());
+    row.addEventListener('drop', () => {
+      const from = parseInt(dragSrc.dataset.index);
+      const to = parseInt(row.dataset.index);
+      const moved = files.splice(from, 1)[0];
+      files.splice(to, 0, moved);
+      renderList();
+    });
+  });
+}
+
+runBtn.addEventListener('click', async () => {
+  status.className = 'status';
+  status.textContent = 'Merging…';
+  progWrap.classList.add('show');
+  runBtn.disabled = true;
+  try{
+    const { PDFDocument } = PDFLib;
+    const mergedPdf = await PDFDocument.create();
+    for(let i=0;i<files.length;i++){
+      const bytes = await files[i].arrayBuffer();
+      const src = await PDFDocument.load(bytes, { ignoreEncryption: true });
+      const pages = await mergedPdf.copyPages(src, src.getPageIndices());
+      pages.forEach(p => mergedPdf.addPage(p));
+      progBar.style.width = `${Math.round(((i+1)/files.length)*100)}%`;
+    }
+    const outBytes = await mergedPdf.save();
+    const blob = new Blob([outBytes], { type: 'application/pdf' });
+    downloadLink.href = URL.createObjectURL(blob);
+    result.classList.add('show');
+    status.textContent = '';
+  }catch(err){
+    status.className = 'status err';
+    status.textContent = 'Something went wrong: ' + err.message;
+  }
+  runBtn.disabled = false;
+});
