@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remove Pages from PDF Free — MyPDFConvert</title>
+<meta name="description" content="Delete specific pages from a PDF file, free and in your browser. No upload, no signup.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="../"><span>My</span>PDFConvert</a>
+  <nav><a href="../">All Tools</a></nav>
+</header>
+
+<div class="tool-page">
+  <h1>Remove Pages</h1>
+  <p class="desc">Choose a PDF, then tell us which pages to delete. Everything else stays in the original order.</p>
+
+  <div class="dropzone" id="dz">
+    <span class="dz-icon">🗑️</span>
+    <span class="dz-text">Tap to choose a PDF file</span>
+    <span class="dz-sub">or drag and drop</span>
+    <input type="file" id="fileInput" accept="application/pdf">
+  </div>
+
+  <div class="file-list" id="fileList"></div>
+
+  <div class="options" id="options" style="display:none;">
+    <label>
+      Pages to remove
+      <input type="text" id="pagesInput" placeholder="e.g. 2, 5-7, 10">
+    </label>
+    <p class="status" id="pageCountMsg" style="margin-top:0;"></p>
+  </div>
+
+  <button class="btn-primary" id="runBtn" disabled>Remove Pages</button>
+
+  <div class="status" id="status"></div>
+
+  <div class="result" id="result">
+    <div>✅ Your PDF is ready</div>
+    <a class="download" id="downloadLink" download="removed-pages.pdf">Download PDF</a>
+  </div>
+
+  <p class="privacy-note"><b>100% private.</b> Pages are removed locally in your browser — nothing is uploaded anywhere.</p>
+</div>
+
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="remove.js"></script>
+</body>
+</html>
