@@ -5,7 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Split PDF Free — MyPDFConvert</title>
 <meta name="description" content="Split a PDF into separate pages or extract a page range, free and in your browser.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/split-pdf/">
 <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Split PDF — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Split a PDF into separate pages or extract a page range, free and in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What's the difference between the two split modes?","acceptedAnswer":{"@type":"Answer","text":"'Split every page' breaks the PDF into one file per page, packaged as a ZIP. 'Extract a page range' pulls out a continuous range (like pages 3 to 7) into a single new PDF."}},
+        {"@type":"Question","name":"Can I split a PDF into individual pages?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose 'Split every page into a separate PDF' and every page becomes its own file, delivered as a ZIP download."}},
+        {"@type":"Question","name":"Will splitting affect the quality of my pages?","acceptedAnswer":{"@type":"Answer","text":"No. Splitting just separates the existing pages — there's no re-compression or quality change."}},
+        {"@type":"Question","name":"Can I extract just a few specific pages, not a continuous range?","acceptedAnswer":{"@type":"Answer","text":"For a continuous range, use Split PDF. To pick specific, non-continuous pages (like 1, 4, and 9), use the Extract Pages tool instead."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"Split PDF","item":"https://mypdfconvert.vercel.app/split-pdf/"}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header>
@@ -51,6 +83,49 @@
   </div>
 
   <p class="privacy-note"><b>100% private.</b> Splitting happens locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>What's the difference between the two split modes?</summary>
+        <p>"Split every page" breaks the PDF into one file per page, packaged as a ZIP. "Extract a page range" pulls out a continuous range (like pages 3 to 7) into a single new PDF.</p>
+      </details>
+      <details>
+        <summary>Can I split a PDF into individual pages?</summary>
+        <p>Yes. Choose "Split every page into a separate PDF" and every page becomes its own file, delivered as a ZIP download.</p>
+      </details>
+      <details>
+        <summary>Will splitting affect the quality of my pages?</summary>
+        <p>No. Splitting just separates the existing pages — there's no re-compression or quality change.</p>
+      </details>
+      <details>
+        <summary>Can I extract just a few specific pages, not a continuous range?</summary>
+        <p>For a continuous range, use Split PDF. To pick specific, non-continuous pages (like 1, 4, and 9), use the Extract Pages tool instead.</p>
+      </details>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🧩</span>
+        <h3 class="name">Merge PDF</h3>
+        <a class="open-tool" href="../merge-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📤</span>
+        <h3 class="name">Extract Pages</h3>
+        <a class="open-tool" href="../extract-pages/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🗑️</span>
+        <h3 class="name">Remove Pages</h3>
+        <a class="open-tool" href="../remove-pages/">Open Tool</a>
+      </article>
+    </div>
+  </div>
 </div>
 
 <footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
@@ -59,4 +134,4 @@
 <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="split.js"></script>
 </body>
-    </html>
+</html>
