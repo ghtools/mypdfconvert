@@ -5,7 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Merge PDF Files Free — MyPDFConvert</title>
 <meta name="description" content="Combine multiple PDF files into one, free and in your browser. No upload, no signup.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/merge-pdf/">
 <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Merge PDF — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Combine multiple PDF files into one, free and in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Can I merge more than two PDFs at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can select as many PDF files as you like — add them one at a time or all together, then reorder them before merging."}},
+        {"@type":"Question","name":"Can I change the order of the pages before merging?","acceptedAnswer":{"@type":"Answer","text":"Yes. After choosing your files, drag and drop them in the list to set the order they'll appear in the final PDF."}},
+        {"@type":"Question","name":"Will merging reduce the quality of my PDFs?","acceptedAnswer":{"@type":"Answer","text":"No. Merging simply combines the original pages as-is, with no re-compression or quality loss."}},
+        {"@type":"Question","name":"Is there a limit to how many files I can merge?","acceptedAnswer":{"@type":"Answer","text":"There's no fixed limit — the only constraint is your device's available memory, since everything runs in your browser."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"Merge PDF","item":"https://mypdfconvert.vercel.app/merge-pdf/"}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header>
@@ -37,6 +69,49 @@
   </div>
 
   <p class="privacy-note"><b>100% private.</b> Your files are merged locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Can I merge more than two PDFs at once?</summary>
+        <p>Yes. You can select as many PDF files as you like — add them one at a time or all together, then reorder them before merging.</p>
+      </details>
+      <details>
+        <summary>Can I change the order of the pages before merging?</summary>
+        <p>Yes. After choosing your files, drag and drop them in the list to set the order they'll appear in the final PDF.</p>
+      </details>
+      <details>
+        <summary>Will merging reduce the quality of my PDFs?</summary>
+        <p>No. Merging simply combines the original pages as-is, with no re-compression or quality loss.</p>
+      </details>
+      <details>
+        <summary>Is there a limit to how many files I can merge?</summary>
+        <p>There's no fixed limit — the only constraint is your device's available memory, since everything runs in your browser.</p>
+      </details>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr);">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">✂️</span>
+        <h3 class="name">Split PDF</h3>
+        <a class="open-tool" href="../split-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📤</span>
+        <h3 class="name">Extract Pages</h3>
+        <a class="open-tool" href="../extract-pages/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+    </div>
+  </div>
 </div>
 
 <footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
@@ -44,4 +119,4 @@
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script src="merge.js"></script>
 </body>
-</html
+  </html>
