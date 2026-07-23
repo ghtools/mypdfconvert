@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word to PDF Free — MyPDFConvert</title>
+<meta name="description" content="Convert a Word (.docx) document into a PDF, free and in your browser. Extracts text — best for text-based documents.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/word-to-pdf/">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Word to PDF — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Convert a Word (.docx) document into a PDF, free and in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Will my formatting, images, and tables be preserved?","acceptedAnswer":{"@type":"Answer","text":"No. This tool extracts the text from your Word document and lays it out as plain paragraphs in a new PDF. Fonts, images, tables, and complex layout are not preserved."}},
+        {"@type":"Question","name":"What file types are supported?","acceptedAnswer":{"@type":"Answer","text":"Only .docx files (the modern Word format) are supported. Older .doc files are not supported."}},
+        {"@type":"Question","name":"Why isn't full formatting supported?","acceptedAnswer":{"@type":"Answer","text":"Accurately recreating a Word document's exact layout requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably converting the text instead."}},
+        {"@type":"Question","name":"Is my document uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The conversion happens entirely in your browser — your file is never uploaded to a server."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"Word to PDF","item":"https://mypdfconvert.vercel.app/word-to-pdf/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <a class="logo" href="../"><span>My</span>PDFConvert</a>
+  <nav><a href="../">All Tools</a></nav>
+</header>
+
+<div class="tool-page">
+  <h1>Word to PDF</h1>
+  <p class="desc">Converts the text of a .docx file into a new PDF. Best for text-based documents — layout, fonts, and images are not preserved, only the text.</p>
+
+  <div class="dropzone" id="dz">
+    <span class="dz-icon">📃</span>
+    <span class="dz-text">Tap to choose a .docx file</span>
+    <span class="dz-sub">or drag and drop</span>
+    <input type="file" id="fileInput" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+  </div>
+
+  <div class="file-list" id="fileList"></div>
+
+  <button class="btn-primary" id="runBtn" disabled>Convert to PDF</button>
+
+  <div class="status" id="status"></div>
+
+  <div class="result" id="result">
+    <div>✅ Your PDF is ready</div>
+    <a class="download" id="downloadLink" download="converted.pdf">Download PDF</a>
+  </div>
+
+  <p class="privacy-note"><b>100% private.</b> Conversion happens locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="display:flex;justify-content:center;padding:16px 0;">
+    <script>
+      atOptions = {
+        'key' : '1b2d3323f9dce1fdd50f79ffba59a790',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Will my formatting, images, and tables be preserved?</summary>
+        <p>No. This tool extracts the text from your Word document and lays it out as plain paragraphs in a new PDF. Fonts, images, tables, and complex layout are not preserved.</p>
+      </details>
+      <details>
+        <summary>What file types are supported?</summary>
+        <p>Only .docx files (the modern Word format) are supported. Older .doc files are not supported.</p>
+      </details>
+      <details>
+        <summary>Why isn't full formatting supported?</summary>
+        <p>Accurately recreating a Word document's exact layout requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably converting the text instead.</p>
+      </details>
+      <details>
+        <summary>Is my document uploaded anywhere?</summary>
+        <p>No. The conversion happens entirely in your browser — your file is never uploaded to a server.</p>
+      </details>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📄</span>
+        <h3 class="name">PDF to Word</h3>
+        <a class="open-tool" href="../pdf-to-word/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📝</span>
+        <h3 class="name">PDF to Text</h3>
+        <a class="open-tool" href="../pdf-to-text/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🧩</span>
+        <h3 class="name">Merge PDF</h3>
+        <a class="open-tool" href="../merge-pdf/">Open Tool</a>
+      </article>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;padding:20px 0;">
+    <script>
+      atOptions = {
+        'key' : '566e9eb29277da62596bafd4097ee973',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/566e9eb29277da62596bafd4097ee973/invoke.js"></script>
+  </div>
+</div>
+
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="word-to-pdf.js"></script>
+</body>
+</html>
