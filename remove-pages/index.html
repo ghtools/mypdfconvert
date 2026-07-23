@@ -5,7 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Remove Pages from PDF Free — MyPDFConvert</title>
 <meta name="description" content="Delete specific pages from a PDF file, free and in your browser. No upload, no signup.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/remove-pages/">
 <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Remove Pages — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Delete specific pages from a PDF file, free and in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How do I enter which pages to remove?","acceptedAnswer":{"@type":"Answer","text":"Type page numbers separated by commas, and use a hyphen for a range. For example, '2, 5-7, 10' removes page 2, pages 5 through 7, and page 10."}},
+        {"@type":"Question","name":"Can I remove every page from the PDF?","acceptedAnswer":{"@type":"Answer","text":"No, at least one page must remain in the resulting PDF."}},
+        {"@type":"Question","name":"Will the remaining pages keep their original order?","acceptedAnswer":{"@type":"Answer","text":"Yes. The pages you don't remove stay in the same order as the original document."}},
+        {"@type":"Question","name":"What if I want to keep only a few specific pages instead?","acceptedAnswer":{"@type":"Answer","text":"Use the Extract Pages tool instead — it lets you choose exactly which pages to keep rather than which to remove."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"Remove Pages","item":"https://mypdfconvert.vercel.app/remove-pages/"}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header>
@@ -44,6 +76,49 @@
   </div>
 
   <p class="privacy-note"><b>100% private.</b> Pages are removed locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>How do I enter which pages to remove?</summary>
+        <p>Type page numbers separated by commas, and use a hyphen for a range. For example, "2, 5-7, 10" removes page 2, pages 5 through 7, and page 10.</p>
+      </details>
+      <details>
+        <summary>Can I remove every page from the PDF?</summary>
+        <p>No, at least one page must remain in the resulting PDF.</p>
+      </details>
+      <details>
+        <summary>Will the remaining pages keep their original order?</summary>
+        <p>Yes. The pages you don't remove stay in the same order as the original document.</p>
+      </details>
+      <details>
+        <summary>What if I want to keep only a few specific pages instead?</summary>
+        <p>Use the Extract Pages tool instead — it lets you choose exactly which pages to keep rather than which to remove.</p>
+      </details>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📤</span>
+        <h3 class="name">Extract Pages</h3>
+        <a class="open-tool" href="../extract-pages/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">✂️</span>
+        <h3 class="name">Split PDF</h3>
+        <a class="open-tool" href="../split-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🧩</span>
+        <h3 class="name">Merge PDF</h3>
+        <a class="open-tool" href="../merge-pdf/">Open Tool</a>
+      </article>
+    </div>
+  </div>
 </div>
 
 <footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
