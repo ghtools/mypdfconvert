@@ -75,3 +75,15 @@ runBtn.addEventListener('click', async () => {
   }
   runBtn.disabled = false;
 });
+
+window.addEventListener('pageshow', (e) => {
+  if(e.persisted){
+    result.classList.remove('show');
+    fileList.innerHTML = '';
+    fileInput.value = '';
+    file = null;
+    options.style.display = 'none';
+    runBtn.disabled = true;
+    status.textContent = '';
+  }
+});
