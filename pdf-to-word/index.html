@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to Word Free — MyPDFConvert</title>
+<meta name="description" content="Convert a PDF into an editable Word (.docx) document, free and in your browser. Extracts text — best for text-based PDFs.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/pdf-to-word/">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "PDF to Word — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Convert a PDF into an editable Word (.docx) document, free and in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Will my formatting, images, and tables be preserved?","acceptedAnswer":{"@type":"Answer","text":"No. This tool extracts the readable text from your PDF and places it into a real, editable .docx file. Layout, fonts, images, and tables are not preserved — only the text content."}},
+        {"@type":"Question","name":"Why isn't full formatting supported?","acceptedAnswer":{"@type":"Answer","text":"Accurately recreating a PDF's exact layout in Word requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably extracting the text instead."}},
+        {"@type":"Question","name":"Will the file open in Microsoft Word?","acceptedAnswer":{"@type":"Answer","text":"Yes. The output is a standard .docx file that opens in Microsoft Word, Google Docs, LibreOffice, and most other word processors, and the text is fully editable."}},
+        {"@type":"Question","name":"Does this work on scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"No. Scanned or image-based PDFs don't contain real text to extract. This tool works best on PDFs created from Word, Google Docs, or similar text-based sources."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"PDF to Word","item":"https://mypdfconvert.vercel.app/pdf-to-word/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <a class="logo" href="../"><span>My</span>PDFConvert</a>
+  <nav><a href="../">All Tools</a></nav>
+</header>
+
+<div class="tool-page">
+  <h1>PDF to Word</h1>
+  <p class="desc">Converts the readable text of your PDF into an editable Word (.docx) file. Best for text-based PDFs — layout and images are not preserved, only the text.</p>
+
+  <div class="dropzone" id="dz">
+    <span class="dz-icon">📄</span>
+    <span class="dz-text">Tap to choose a PDF file</span>
+    <span class="dz-sub">or drag and drop</span>
+    <input type="file" id="fileInput" accept="application/pdf">
+  </div>
+
+  <div class="file-list" id="fileList"></div>
+
+  <button class="btn-primary" id="runBtn" disabled>Convert to Word</button>
+
+  <div class="status" id="status"></div>
+
+  <div class="result" id="result">
+    <div>✅ Your Word document is ready</div>
+    <a class="download" id="downloadLink" download="converted.docx">Download .docx</a>
+  </div>
+
+  <p class="privacy-note"><b>100% private.</b> Conversion happens locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="display:flex;justify-content:center;padding:16px 0;">
+    <script>
+      atOptions = {
+        'key' : '1b2d3323f9dce1fdd50f79ffba59a790',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Will my formatting, images, and tables be preserved?</summary>
+        <p>No. This tool extracts the readable text from your PDF and places it into a real, editable .docx file. Layout, fonts, images, and tables are not preserved — only the text content.</p>
+      </details>
+      <details>
+        <summary>Why isn't full formatting supported?</summary>
+        <p>Accurately recreating a PDF's exact layout in Word requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably extracting the text instead.</p>
+      </details>
+      <details>
+        <summary>Will the file open in Microsoft Word?</summary>
+        <p>Yes. The output is a standard .docx file that opens in Microsoft Word, Google Docs, LibreOffice, and most other word processors, and the text is fully editable.</p>
+      </details>
+      <details>
+        <summary>Does this work on scanned PDFs?</summary>
+        <p>No. Scanned or image-based PDFs don't contain real text to extract. This tool works best on PDFs created from Word, Google Docs, or similar text-based sources.</p>
+      </details>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📝</span>
+        <h3 class="name">PDF to Text</h3>
+        <a class="open-tool" href="../pdf-to-text/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🧩</span>
+        <h3 class="name">Merge PDF</h3>
+        <a class="open-tool" href="../merge-pdf/">Open Tool</a>
+      </article>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;padding:20px 0;">
+    <script>
+      atOptions = {
+        'key' : '566e9eb29277da62596bafd4097ee973',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/566e9eb29277da62596bafd4097ee973/invoke.js"></script>
+  </div>
+</div>
+
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+
+<script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="pdf-to-word.js"></script>
+</body>
+      </html>
