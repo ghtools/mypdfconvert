@@ -5,7 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PDF to JPG Free — MyPDFConvert</title>
 <meta name="description" content="Convert every page of a PDF into a JPG image, free and in your browser.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/pdf-to-jpg/">
 <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "PDF to JPG — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Convert every page of a PDF into a JPG image, free and in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"What do I get if my PDF has multiple pages?","acceptedAnswer":{"@type":"Answer","text":"Each page is converted into its own JPG image, packaged together in a single ZIP file for download."}},
+        {"@type":"Question","name":"What if my PDF only has one page?","acceptedAnswer":{"@type":"Answer","text":"You'll get a single JPG file directly — no ZIP needed."}},
+        {"@type":"Question","name":"What resolution are the images?","acceptedAnswer":{"@type":"Answer","text":"Pages are rendered at 2x scale for sharp, high-quality images suitable for viewing or printing."}},
+        {"@type":"Question","name":"Is my PDF uploaded anywhere to convert it?","acceptedAnswer":{"@type":"Answer","text":"No. The conversion happens entirely in your browser — nothing is uploaded to a server."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"PDF to JPG","item":"https://mypdfconvert.vercel.app/pdf-to-jpg/"}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header>
@@ -34,9 +66,52 @@
   <div class="result" id="result">
     <div id="resultMsg">✅ Your images are ready</div>
     <a class="download" id="downloadLink" download="pages.zip">Download ZIP</a>
-  </div
+  </div>
 
   <p class="privacy-note"><b>100% private.</b> Conversion happens locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>What do I get if my PDF has multiple pages?</summary>
+        <p>Each page is converted into its own JPG image, packaged together in a single ZIP file for download.</p>
+      </details>
+      <details>
+        <summary>What if my PDF only has one page?</summary>
+        <p>You'll get a single JPG file directly — no ZIP needed.</p>
+      </details>
+      <details>
+        <summary>What resolution are the images?</summary>
+        <p>Pages are rendered at 2x scale for sharp, high-quality images suitable for viewing or printing.</p>
+      </details>
+      <details>
+        <summary>Is my PDF uploaded anywhere to convert it?</summary>
+        <p>No. The conversion happens entirely in your browser — nothing is uploaded to a server.</p>
+      </details>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🖼️</span>
+        <h3 class="name">JPG to PDF</h3>
+        <a class="open-tool" href="../jpg-to-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📝</span>
+        <h3 class="name">PDF to Text</h3>
+        <a class="open-tool" href="../pdf-to-text/">Open Tool</a>
+      </article>
+    </div>
+  </div>
 </div>
 
 <footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
