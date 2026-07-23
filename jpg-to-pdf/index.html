@@ -5,7 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JPG to PDF Free — MyPDFConvert</title>
 <meta name="description" content="Combine JPG or PNG images into a single PDF, free and in your browser.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/jpg-to-pdf/">
 <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "JPG to PDF — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Combine JPG or PNG images into a single PDF, free and in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Can I combine multiple images into one PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select as many JPG or PNG images as you like — each one becomes its own page in the final PDF, in the order you arrange them."}},
+        {"@type":"Question","name":"Can I change the order of the images?","acceptedAnswer":{"@type":"Answer","text":"Yes. After selecting your images, drag and drop them in the list to set the page order before converting."}},
+        {"@type":"Question","name":"Does this work with PNG files too?","acceptedAnswer":{"@type":"Answer","text":"Yes. Both JPG and PNG images are supported and can be mixed in the same PDF."}},
+        {"@type":"Question","name":"Will the image quality be reduced?","acceptedAnswer":{"@type":"Answer","text":"No. Each image is placed into the PDF at its original resolution, with no re-compression."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"JPG to PDF","item":"https://mypdfconvert.vercel.app/jpg-to-pdf/"}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header>
@@ -37,6 +69,49 @@
   </div>
 
   <p class="privacy-note"><b>100% private.</b> Conversion happens locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Can I combine multiple images into one PDF?</summary>
+        <p>Yes. Select as many JPG or PNG images as you like — each one becomes its own page in the final PDF, in the order you arrange them.</p>
+      </details>
+      <details>
+        <summary>Can I change the order of the images?</summary>
+        <p>Yes. After selecting your images, drag and drop them in the list to set the page order before converting.</p>
+      </details>
+      <details>
+        <summary>Does this work with PNG files too?</summary>
+        <p>Yes. Both JPG and PNG images are supported and can be mixed in the same PDF.</p>
+      </details>
+      <details>
+        <summary>Will the image quality be reduced?</summary>
+        <p>No. Each image is placed into the PDF at its original resolution, with no re-compression.</p>
+      </details>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📷</span>
+        <h3 class="name">PDF to JPG</h3>
+        <a class="open-tool" href="../pdf-to-jpg/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🧩</span>
+        <h3 class="name">Merge PDF</h3>
+        <a class="open-tool" href="../merge-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+    </div>
+  </div>
 </div>
 
 <footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
@@ -44,4 +119,4 @@
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script src="jpg-to-pdf.js"></script>
 </body>
-  </html>
+</html>
