@@ -3,6 +3,8 @@ const fileInput = document.getElementById('fileInput');
 const fileList = document.getElementById('fileList');
 const options = document.getElementById('options');
 const textInput = document.getElementById('textInput');
+const positionSel = document.getElementById('position');
+const colorSel = document.getElementById('color');
 const opacitySel = document.getElementById('opacity');
 const fontSizeSel = document.getElementById('fontSize');
 const runBtn = document.getElementById('runBtn');
@@ -44,18 +46,58 @@ runBtn.addEventListener('click', async () => {
     const text = textInput.value.trim();
     const opacity = parseFloat(opacitySel.value);
     const fontSize = parseInt(fontSizeSel.value);
+    const position = positionSel.value;
+
+    const colorMap = {
+      gray: rgb(0.5, 0.5, 0.5),
+      red: rgb(0.8, 0.1, 0.1),
+      blue: rgb(0.1, 0.3, 0.8),
+      black: rgb(0.1, 0.1, 0.1),
+    };
+    const color = colorMap[colorSel.value] || colorMap.gray;
+    const rotateDeg = position.includes('diagonal') ? 45 : 0;
+    const margin = 24;
 
     doc.getPages().forEach(page => {
       const { width, height } = page.getSize();
       const textWidth = font.widthOfTextAtSize(text, fontSize);
+      let x, y;
+
+      switch(position){
+        case 'top-left':
+          x = margin;
+          y = height - margin - fontSize;
+          break;
+        case 'top-right':
+          x = width - margin - textWidth;
+          y = height - margin - fontSize;
+          break;
+        case 'bottom-left':
+          x = margin;
+          y = margin;
+          break;
+        case 'bottom-right':
+          x = width - margin - textWidth;
+          y = margin;
+          break;
+        case 'center':
+          x = width / 2 - textWidth / 2;
+          y = height / 2;
+          break;
+        case 'center-diagonal':
+        default:
+          x = width / 2 - textWidth / 2;
+          y = height / 2;
+          break;
+      }
+
       page.drawText(text, {
-        x: width / 2 - textWidth / 2,
-        y: height / 2,
+        x, y,
         size: fontSize,
         font,
-        color: rgb(0.5, 0.5, 0.5),
+        color,
         opacity,
-        rotate: degrees(45),
+        rotate: degrees(rotateDeg),
       });
     });
 
