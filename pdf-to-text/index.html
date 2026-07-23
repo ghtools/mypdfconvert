@@ -5,7 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PDF to Text Free — MyPDFConvert</title>
 <meta name="description" content="Extract readable text from a PDF file, free and in your browser.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/pdf-to-text/">
 <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "PDF to Text — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Extract readable text from a PDF file, free and in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Why is my extracted text file empty?","acceptedAnswer":{"@type":"Answer","text":"This happens when the PDF is scanned or made up of images rather than real text — for example, a photo of a document saved as a PDF. This tool can only extract text that's actually stored as text in the file, not text within an image."}},
+        {"@type":"Question","name":"Does this preserve formatting like bold or tables?","acceptedAnswer":{"@type":"Answer","text":"No. The output is plain text only — formatting, fonts, and layout are not preserved, only the words themselves."}},
+        {"@type":"Question","name":"Can I extract text from scanned documents?","acceptedAnswer":{"@type":"Answer","text":"Not with this tool. Scanned PDFs need OCR (optical character recognition) to detect text within images, which this tool does not currently perform."}},
+        {"@type":"Question","name":"Is my file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Text extraction happens entirely in your browser — nothing is uploaded to a server."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"PDF to Text","item":"https://mypdfconvert.vercel.app/pdf-to-text/"}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header>
@@ -36,6 +68,49 @@
   </div>
 
   <p class="privacy-note"><b>100% private.</b> Extraction happens locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Why is my extracted text file empty?</summary>
+        <p>This happens when the PDF is scanned or made up of images rather than real text — for example, a photo of a document saved as a PDF. This tool can only extract text that's actually stored as text in the file, not text within an image.</p>
+      </details>
+      <details>
+        <summary>Does this preserve formatting like bold or tables?</summary>
+        <p>No. The output is plain text only — formatting, fonts, and layout are not preserved, only the words themselves.</p>
+      </details>
+      <details>
+        <summary>Can I extract text from scanned documents?</summary>
+        <p>Not with this tool. Scanned PDFs need OCR (optical character recognition) to detect text within images, which this tool does not currently perform.</p>
+      </details>
+      <details>
+        <summary>Is my file uploaded anywhere?</summary>
+        <p>No. Text extraction happens entirely in your browser — nothing is uploaded to a server.</p>
+      </details>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📷</span>
+        <h3 class="name">PDF to JPG</h3>
+        <a class="open-tool" href="../pdf-to-jpg/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">✂️</span>
+        <h3 class="name">Split PDF</h3>
+        <a class="open-tool" href="../split-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+    </div>
+  </div>
 </div>
 
 <footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
@@ -43,4 +118,4 @@
 <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
 <script src="pdf-to-text.js"></script>
 </body>
-</html>
+      </html>
