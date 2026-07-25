@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Split PDF Free — MyPDFConvert</title>
-<meta name="description" content="Split a PDF into separate pages or extract a page range, free and in your browser.">
+<title>Free Online Split PDF Tool — MyPDFConvert</title>
+<meta name="description" content="Split PDF online free, right in your browser. Separate pages or extract a page range fast — private, secure, works on mobile and desktop.">
 <link rel="canonical" href="https://mypdfconvert.vercel.app/split-pdf/">
+<meta property="og:title" content="Free Online Split PDF Tool — MyPDFConvert">
+<meta property="og:description" content="Split PDF online free, right in your browser. Private, secure, no upload.">
+<meta property="og:url" content="https://mypdfconvert.vercel.app/split-pdf/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online Split PDF Tool — MyPDFConvert">
+<meta name="twitter:description" content="Split PDF online free, right in your browser. Private, secure, no upload.">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -17,15 +24,23 @@
       "applicationCategory": "Utility",
       "operatingSystem": "Any",
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "description": "Split a PDF into separate pages or extract a page range, free and in your browser."
+      "description": "Split PDF online free, right in your browser. Separate pages or extract a page range."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"What's the difference between the two split modes?","acceptedAnswer":{"@type":"Answer","text":"'Split every page' breaks the PDF into one file per page, packaged as a ZIP. 'Extract a page range' pulls out a continuous range (like pages 3 to 7) into a single new PDF."}},
-        {"@type":"Question","name":"Can I split a PDF into individual pages?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose 'Split every page into a separate PDF' and every page becomes its own file, delivered as a ZIP download."}},
-        {"@type":"Question","name":"Will splitting affect the quality of my pages?","acceptedAnswer":{"@type":"Answer","text":"No. Splitting just separates the existing pages — there's no re-compression or quality change."}},
-        {"@type":"Question","name":"Can I extract just a few specific pages, not a continuous range?","acceptedAnswer":{"@type":"Answer","text":"For a continuous range, use Split PDF. To pick specific, non-continuous pages (like 1, 4, and 9), use the Extract Pages tool instead."}}
+        {"@type":"Question","name":"How can I split a PDF online for free?","acceptedAnswer":{"@type":"Answer","text":"Choose your PDF above, pick a split mode, and tap Split PDF. Your files download directly — no account needed."}},
+        {"@type":"Question","name":"Is this PDF splitter really private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Splitting happens entirely inside your browser. Your file is never uploaded to a server."}},
+        {"@type":"Question","name":"Can I split a PDF without uploading it?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your PDF stays on your device the entire time — nothing is sent anywhere."}},
+        {"@type":"Question","name":"How do I split a PDF without losing quality?","acceptedAnswer":{"@type":"Answer","text":"Splitting only separates existing pages — there's no re-compression, so quality is unchanged."}},
+        {"@type":"Question","name":"Can I split a PDF on Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox."}},
+        {"@type":"Question","name":"Can I split a PDF on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in Safari and Chrome on iPhone and iPad without installing an app."}},
+        {"@type":"Question","name":"What browsers are supported?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Firefox, Edge, and Safari on both desktop and mobile."}},
+        {"@type":"Question","name":"Does this work on Windows and Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux."}},
+        {"@type":"Question","name":"Can I extract just a few pages from a large PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the 'Extract a page range' mode to pull out a continuous range like pages 3 to 7."}},
+        {"@type":"Question","name":"What if I want individual pages, not a range?","acceptedAnswer":{"@type":"Answer","text":"Choose 'Split every page' mode — every page becomes its own PDF, delivered as a ZIP."}},
+        {"@type":"Question","name":"Is this the best free way to split a PDF fast?","acceptedAnswer":{"@type":"Answer","text":"It's a strong private option — most splitters upload your file to a server, while this one processes it entirely on your device."}},
+        {"@type":"Question","name":"Do I need to sign up to split a PDF?","acceptedAnswer":{"@type":"Answer","text":"No signup, no account, and no email address required."}}
       ]
     },
     {
@@ -46,20 +61,20 @@
 </header>
 
 <div class="tool-page">
-  <h1>Split PDF</h1>
-  <p class="desc">Choose a PDF, then split every page into its own file, or extract a page range.</p>
+  <h1>Free Online Split PDF Tool</h1>
+  <p class="desc">Choose a PDF, then split every page into its own file, or extract a page range — free, private, right in your browser.</p>
 
-  <div class="dropzone" id="dz">
-    <span class="dz-icon">✂️</span>
+  <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Choose a PDF file to split">
+    <span class="dz-icon" aria-hidden="true">✂️</span>
     <span class="dz-text">Tap to choose a PDF file</span>
-    <span class="dz-sub">or drag and drop</span>
-    <input type="file" id="fileInput" accept="application/pdf">
+    <span class="dz-sub">or drag and drop — PDF format only</span>
+    <input type="file" id="fileInput" accept="application/pdf" aria-label="PDF file input">
   </div>
 
   <div class="file-list" id="fileList"></div>
 
   <div class="options" id="options" style="display:none;">
-    <label>
+    <label for="mode">
       Mode
       <select id="mode">
         <option value="all">Split every page into a separate PDF (ZIP)</option>
@@ -75,7 +90,7 @@
   <button class="btn-primary" id="runBtn" disabled>Split PDF</button>
 
   <div class="progress-wrap" id="progWrap"><div class="progress-bar" id="progBar"></div></div>
-  <div class="status" id="status"></div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
 
   <div class="result" id="result">
     <div>✅ Your file is ready</div>
@@ -84,29 +99,25 @@
 
   <p class="privacy-note"><b>100% private.</b> Splitting happens locally in your browser — nothing is uploaded anywhere.</p>
 
-  <div style="margin-top:40px;">
-    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <details>
-        <summary>What's the difference between the two split modes?</summary>
-        <p>"Split every page" breaks the PDF into one file per page, packaged as a ZIP. "Extract a page range" pulls out a continuous range (like pages 3 to 7) into a single new PDF.</p>
-      </details>
-      <details>
-        <summary>Can I split a PDF into individual pages?</summary>
-        <p>Yes. Choose "Split every page into a separate PDF" and every page becomes its own file, delivered as a ZIP download.</p>
-      </details>
-      <details>
-        <summary>Will splitting affect the quality of my pages?</summary>
-        <p>No. Splitting just separates the existing pages — there's no re-compression or quality change.</p>
-      </details>
-      <details>
-        <summary>Can I extract just a few specific pages, not a continuous range?</summary>
-        <p>For a continuous range, use Split PDF. To pick specific, non-continuous pages (like 1, 4, and 9), use the Extract Pages tool instead.</p>
-      </details>
-    </div>
+  <div style="display:flex;justify-content:center;padding:16px 0;">
+    <script>
+      atOptions = {
+        'key' : '1b2d3323f9dce1fdd50f79ffba59a790',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
   </div>
 
-  <div style="margin-top:40px;">
+  <section style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">About This Tool</h2>
+    <p style="color:var(--text-dim); font-size:.88rem; line-height:1.8;">Split your PDF online, completely free, without uploading it anywhere. This browser-based PDF splitter separates a document into individual pages or extracts a specific page range in seconds. Because everything runs locally in your browser, your file stays private and secure — nothing is sent to a server. It works smoothly on mobile and desktop, including Android, iPhone, Windows, and Mac, in Chrome, Firefox, Edge, or Safari. Whether you need to pull a few pages out of a large report or break an entire document into single-page files, this fast, private tool handles it with no signup, no watermark, and no limits.</p>
+  </section>
+
+  <div style="margin-top:32px;">
     <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
     <div class="grid">
       <article class="tool-card">
@@ -124,7 +135,85 @@
         <h3 class="name">Remove Pages</h3>
         <a class="open-tool" href="../remove-pages/">Open Tool</a>
       </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🔄</span>
+        <h3 class="name">Rotate PDF</h3>
+        <a class="open-tool" href="../rotate-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📷</span>
+        <h3 class="name">PDF to JPG</h3>
+        <a class="open-tool" href="../pdf-to-jpg/">Open Tool</a>
+      </article>
     </div>
+  </div>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Why Split Your PDF</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Pull out just the pages you need</li>
+      <li>Share smaller, focused documents</li>
+      <li>Break large reports into manageable parts</li>
+      <li>Remove unwanted sections easily</li>
+      <li>Prepare pages for separate use</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">How to Split PDF Online</h2>
+    <ol style="color:var(--text-dim); font-size:.9rem; line-height:2; padding-left:20px;">
+      <li>Tap the upload box and choose your PDF file</li>
+      <li>Pick a mode — split every page, or extract a range</li>
+      <li>If extracting a range, enter the start and end page</li>
+      <li>Tap "Split PDF" and download the result</li>
+    </ol>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Features</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Split every page into a separate file, delivered as a ZIP</li>
+      <li>Extract a continuous page range into one PDF</li>
+      <li>No file upload — 100% browser-based processing</li>
+      <li>Works on Android, iPhone, Windows, and Mac</li>
+      <li>No signup, no watermark, no daily limits</li>
+    </ul>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary>How can I split a PDF online for free?</summary><p>Choose your PDF above, pick a split mode, and tap Split PDF. Your files download directly — no account needed.</p></details>
+      <details><summary>Is this PDF splitter really private?</summary><p>Yes. Splitting happens entirely inside your browser. Your file is never uploaded to a server.</p></details>
+      <details><summary>Can I split a PDF without uploading it?</summary><p>Yes. Your PDF stays on your device the entire time — nothing is sent anywhere.</p></details>
+      <details><summary>How do I split a PDF without losing quality?</summary><p>Splitting only separates existing pages — there's no re-compression, so quality is unchanged.</p></details>
+      <details><summary>Can I split a PDF on Android?</summary><p>Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox.</p></details>
+      <details><summary>Can I split a PDF on iPhone?</summary><p>Yes. It works in Safari and Chrome on iPhone and iPad without installing an app.</p></details>
+      <details><summary>What browsers are supported?</summary><p>Chrome, Firefox, Edge, and Safari on both desktop and mobile.</p></details>
+      <details><summary>Does this work on Windows and Mac?</summary><p>Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux.</p></details>
+      <details><summary>Can I extract just a few pages from a large PDF?</summary><p>Yes. Use the "Extract a page range" mode to pull out a continuous range like pages 3 to 7.</p></details>
+      <details><summary>What if I want individual pages, not a range?</summary><p>Choose "Split every page" mode — every page becomes its own PDF, delivered as a ZIP.</p></details>
+      <details><summary>Is this the best free way to split a PDF fast?</summary><p>It's a strong private option — most splitters upload your file to a server, while this one processes it entirely on your device.</p></details>
+      <details><summary>Do I need to sign up to split a PDF?</summary><p>No signup, no account, and no email address required.</p></details>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;padding:20px 0;">
+    <script>
+      atOptions = {
+        'key' : '566e9eb29277da62596bafd4097ee973',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/566e9eb29277da62596bafd4097ee973/invoke.js"></script>
   </div>
 </div>
 
@@ -134,4 +223,4 @@
 <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="split.js"></script>
 </body>
-</html>
+        </html>
