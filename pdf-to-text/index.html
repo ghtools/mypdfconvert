@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PDF to Text Free — MyPDFConvert</title>
-<meta name="description" content="Extract readable text from a PDF file, free and in your browser.">
+<title>Free Online PDF to Text Tool — MyPDFConvert</title>
+<meta name="description" content="Extract text from PDF online free, right in your browser. Fast, private plain-text extraction — works on mobile and desktop.">
 <link rel="canonical" href="https://mypdfconvert.vercel.app/pdf-to-text/">
+<meta property="og:title" content="Free Online PDF to Text Tool — MyPDFConvert">
+<meta property="og:description" content="Extract text from PDF online free, right in your browser. Private, secure, no upload.">
+<meta property="og:url" content="https://mypdfconvert.vercel.app/pdf-to-text/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online PDF to Text Tool — MyPDFConvert">
+<meta name="twitter:description" content="Extract text from PDF online free, right in your browser. Private, secure, no upload.">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -17,15 +24,23 @@
       "applicationCategory": "Utility",
       "operatingSystem": "Any",
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "description": "Extract readable text from a PDF file, free and in your browser."
+      "description": "Extract text from PDF online free, right in your browser."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"Why is my extracted text file empty?","acceptedAnswer":{"@type":"Answer","text":"This happens when the PDF is scanned or made up of images rather than real text — for example, a photo of a document saved as a PDF. This tool can only extract text that's actually stored as text in the file, not text within an image."}},
+        {"@type":"Question","name":"How can I extract text from a PDF online for free?","acceptedAnswer":{"@type":"Answer","text":"Choose your PDF above and tap Extract Text. A plain .txt file downloads directly to your device."}},
+        {"@type":"Question","name":"Is this PDF text extractor really private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Extraction happens entirely inside your browser. Your file is never uploaded to a server."}},
+        {"@type":"Question","name":"Can I extract text without uploading my PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your PDF stays on your device the entire time — nothing is sent anywhere."}},
+        {"@type":"Question","name":"Why is my extracted text file empty?","acceptedAnswer":{"@type":"Answer","text":"This happens when the PDF is scanned or made up of images rather than real text. Only text actually stored as text in the file can be extracted, not text inside an image."}},
         {"@type":"Question","name":"Does this preserve formatting like bold or tables?","acceptedAnswer":{"@type":"Answer","text":"No. The output is plain text only — formatting, fonts, and layout are not preserved, only the words themselves."}},
-        {"@type":"Question","name":"Can I extract text from scanned documents?","acceptedAnswer":{"@type":"Answer","text":"Not with this tool. Scanned PDFs need OCR (optical character recognition) to detect text within images, which this tool does not currently perform."}},
-        {"@type":"Question","name":"Is my file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Text extraction happens entirely in your browser — nothing is uploaded to a server."}}
+        {"@type":"Question","name":"Can I extract text from scanned documents?","acceptedAnswer":{"@type":"Answer","text":"Not with this tool. Scanned PDFs need OCR to detect text within images, which this tool does not currently perform."}},
+        {"@type":"Question","name":"Can I extract PDF text on Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox."}},
+        {"@type":"Question","name":"Can I extract PDF text on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in Safari and Chrome on iPhone and iPad without installing an app."}},
+        {"@type":"Question","name":"What browsers are supported?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Firefox, Edge, and Safari on both desktop and mobile."}},
+        {"@type":"Question","name":"Does this work on Windows and Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux."}},
+        {"@type":"Question","name":"Is this the best free way to extract PDF text fast?","acceptedAnswer":{"@type":"Answer","text":"It's a strong private option — most extractors upload your file to a server, while this one processes it entirely on your device."}},
+        {"@type":"Question","name":"Do I need to sign up to extract PDF text?","acceptedAnswer":{"@type":"Answer","text":"No signup, no account, and no email address required."}}
       ]
     },
     {
@@ -46,21 +61,21 @@
 </header>
 
 <div class="tool-page">
-  <h1>PDF to Text</h1>
-  <p class="desc">Pull the readable text out of a PDF into a plain .txt file. Works best on text-based PDFs, not scanned images.</p>
+  <h1>Free Online PDF to Text Tool</h1>
+  <p class="desc">Pull the readable text out of a PDF into a plain .txt file — free, private, right in your browser.</p>
 
-  <div class="dropzone" id="dz">
-    <span class="dz-icon">📝</span>
+  <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Choose a PDF file to extract text from">
+    <span class="dz-icon" aria-hidden="true">📝</span>
     <span class="dz-text">Tap to choose a PDF file</span>
-    <span class="dz-sub">or drag and drop</span>
-    <input type="file" id="fileInput" accept="application/pdf">
+    <span class="dz-sub">or drag and drop — PDF format only</span>
+    <input type="file" id="fileInput" accept="application/pdf" aria-label="PDF file input">
   </div>
 
   <div class="file-list" id="fileList"></div>
 
   <button class="btn-primary" id="runBtn" disabled>Extract Text</button>
 
-  <div class="status" id="status"></div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
 
   <div class="result" id="result">
     <div>✅ Your text file is ready</div>
@@ -69,31 +84,32 @@
 
   <p class="privacy-note"><b>100% private.</b> Extraction happens locally in your browser — nothing is uploaded anywhere.</p>
 
-  <div style="margin-top:40px;">
-    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <details>
-        <summary>Why is my extracted text file empty?</summary>
-        <p>This happens when the PDF is scanned or made up of images rather than real text — for example, a photo of a document saved as a PDF. This tool can only extract text that's actually stored as text in the file, not text within an image.</p>
-      </details>
-      <details>
-        <summary>Does this preserve formatting like bold or tables?</summary>
-        <p>No. The output is plain text only — formatting, fonts, and layout are not preserved, only the words themselves.</p>
-      </details>
-      <details>
-        <summary>Can I extract text from scanned documents?</summary>
-        <p>Not with this tool. Scanned PDFs need OCR (optical character recognition) to detect text within images, which this tool does not currently perform.</p>
-      </details>
-      <details>
-        <summary>Is my file uploaded anywhere?</summary>
-        <p>No. Text extraction happens entirely in your browser — nothing is uploaded to a server.</p>
-      </details>
-    </div>
+  <div style="display:flex;justify-content:center;padding:16px 0;">
+    <script>
+      atOptions = {
+        'key' : '1b2d3323f9dce1fdd50f79ffba59a790',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
   </div>
 
-  <div style="margin-top:40px;">
+  <section style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">About This Tool</h2>
+    <p style="color:var(--text-dim); font-size:.88rem; line-height:1.8;">Extract text from a PDF online, completely free, without uploading your file anywhere. This browser-based tool pulls the readable text out of your document into a plain .txt file, ready to copy, edit, or search. Because everything runs locally in your browser, your file stays private and secure the entire time — nothing is sent to a server. It works smoothly on mobile and desktop, including Android, iPhone, Windows, and Mac, in Chrome, Firefox, Edge, or Safari. It works best on text-based PDFs; scanned or image-based PDFs don't contain extractable text. No signup, no watermark, no limits.</p>
+  </section>
+
+  <div style="margin-top:32px;">
     <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
     <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📄</span>
+        <h3 class="name">PDF to Word</h3>
+        <a class="open-tool" href="../pdf-to-word/">Open Tool</a>
+      </article>
       <article class="tool-card">
         <span class="icon" aria-hidden="true">📷</span>
         <h3 class="name">PDF to JPG</h3>
@@ -109,7 +125,80 @@
         <h3 class="name">Compress PDF</h3>
         <a class="open-tool" href="../compress-pdf/">Open Tool</a>
       </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🧩</span>
+        <h3 class="name">Merge PDF</h3>
+        <a class="open-tool" href="../merge-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📤</span>
+        <h3 class="name">Extract Pages</h3>
+        <a class="open-tool" href="../extract-pages/">Open Tool</a>
+      </article>
     </div>
+  </div>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Why Extract Text From a PDF</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Copy content into another document quickly</li>
+      <li>Search or index document text easily</li>
+      <li>Reuse text without retyping it</li>
+      <li>Feed content into other tools or scripts</li>
+      <li>Check a document's word count or content</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">How to Extract Text From PDF Online</h2>
+    <ol style="color:var(--text-dim); font-size:.9rem; line-height:2; padding-left:20px;">
+      <li>Tap the upload box and choose your PDF file</li>
+      <li>Tap "Extract Text"</li>
+      <li>Wait a moment while the text is pulled out</li>
+      <li>Download the .txt file</li>
+    </ol>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Features</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Extracts text page by page with clear markers</li>
+      <li>Outputs a plain, universal .txt file</li>
+      <li>No file upload — 100% browser-based processing</li>
+      <li>Works on Android, iPhone, Windows, and Mac</li>
+      <li>No signup, no watermark, no daily limits</li>
+    </ul>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary>How can I extract text from a PDF online for free?</summary><p>Choose your PDF above and tap Extract Text. A plain .txt file downloads directly to your device.</p></details>
+      <details><summary>Is this PDF text extractor really private?</summary><p>Yes. Extraction happens entirely inside your browser. Your file is never uploaded to a server.</p></details>
+      <details><summary>Can I extract text without uploading my PDF?</summary><p>Yes. Your PDF stays on your device the entire time — nothing is sent anywhere.</p></details>
+      <details><summary>Why is my extracted text file empty?</summary><p>This happens when the PDF is scanned or made up of images rather than real text. Only text actually stored as text in the file can be extracted, not text inside an image.</p></details>
+      <details><summary>Does this preserve formatting like bold or tables?</summary><p>No. The output is plain text only — formatting, fonts, and layout are not preserved, only the words themselves.</p></details>
+      <details><summary>Can I extract text from scanned documents?</summary><p>Not with this tool. Scanned PDFs need OCR to detect text within images, which this tool does not currently perform.</p></details>
+      <details><summary>Can I extract PDF text on Android?</summary><p>Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox.</p></details>
+      <details><summary>Can I extract PDF text on iPhone?</summary><p>Yes. It works in Safari and Chrome on iPhone and iPad without installing an app.</p></details>
+      <details><summary>What browsers are supported?</summary><p>Chrome, Firefox, Edge, and Safari on both desktop and mobile.</p></details>
+      <details><summary>Does this work on Windows and Mac?</summary><p>Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux.</p></details>
+      <details><summary>Is this the best free way to extract PDF text fast?</summary><p>It's a strong private option — most extractors upload your file to a server, while this one processes it entirely on your device.</p></details>
+      <details><summary>Do I need to sign up to extract PDF text?</summary><p>No signup, no account, and no email address required.</p></details>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;padding:20px 0;">
+    <script>
+      atOptions = {
+        'key' : '566e9eb29277da62596bafd4097ee973',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/566e9eb29277da62596bafd4097ee973/invoke.js"></script>
   </div>
 </div>
 
@@ -118,4 +207,4 @@
 <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
 <script src="pdf-to-text.js"></script>
 </body>
-      </html>
+  </html>
