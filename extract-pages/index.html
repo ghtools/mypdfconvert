@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Extract Pages from PDF Free — MyPDFConvert</title>
-<meta name="description" content="Pull specific pages out of a PDF into a new file, free and in your browser. No upload, no signup.">
+<title>Free Online Extract Pages from PDF Tool — MyPDFConvert</title>
+<meta name="description" content="Extract pages from a PDF online free, right in your browser. Pull out specific pages fast — private, secure, works on mobile and desktop.">
 <link rel="canonical" href="https://mypdfconvert.vercel.app/extract-pages/">
+<meta property="og:title" content="Free Online Extract Pages from PDF Tool — MyPDFConvert">
+<meta property="og:description" content="Extract pages from a PDF online free, right in your browser. Private, secure, no upload.">
+<meta property="og:url" content="https://mypdfconvert.vercel.app/extract-pages/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online Extract Pages from PDF Tool — MyPDFConvert">
+<meta name="twitter:description" content="Extract pages from a PDF online free, right in your browser. Private, secure, no upload.">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -17,15 +24,23 @@
       "applicationCategory": "Utility",
       "operatingSystem": "Any",
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "description": "Pull specific pages out of a PDF into a new file, free and in your browser."
+      "description": "Pull specific pages out of a PDF into a new file, free and online, right in your browser."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type":"Question","name":"How can I extract pages from a PDF online for free?","acceptedAnswer":{"@type":"Answer","text":"Choose your PDF above, type the page numbers to keep, and tap Extract Pages. The result downloads directly to your device."}},
+        {"@type":"Question","name":"Is this PDF page extractor really private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pages are extracted entirely inside your browser. Your file is never uploaded to a server."}},
+        {"@type":"Question","name":"Can I extract pages without uploading my PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your PDF stays on your device the entire time — nothing is sent anywhere."}},
         {"@type":"Question","name":"How do I enter which pages to extract?","acceptedAnswer":{"@type":"Answer","text":"Type page numbers separated by commas, and use a hyphen for a range. For example, '1, 3, 5-7' extracts page 1, page 3, and pages 5 through 7."}},
-        {"@type":"Question","name":"What order will the extracted pages be in?","acceptedAnswer":{"@type":"Answer","text":"They'll appear in the order you type them, so you can also use this tool to reorder select pages — for example, '5, 1, 3'."}},
-        {"@type":"Question","name":"Can I extract the same page more than once?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you list a page number more than once, it will appear multiple times in the output."}},
-        {"@type":"Question","name":"What if I want to delete pages instead of keeping them?","acceptedAnswer":{"@type":"Answer","text":"Use the Remove Pages tool instead — it lets you specify which pages to delete rather than which to keep."}}
+        {"@type":"Question","name":"What order will the extracted pages be in?","acceptedAnswer":{"@type":"Answer","text":"They'll appear in the order you type them, so you can also use this tool to reorder select pages."}},
+        {"@type":"Question","name":"Can I extract pages on Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox."}},
+        {"@type":"Question","name":"Can I extract pages on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in Safari and Chrome on iPhone and iPad without installing an app."}},
+        {"@type":"Question","name":"What browsers are supported?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Firefox, Edge, and Safari on both desktop and mobile."}},
+        {"@type":"Question","name":"Does this work on Windows and Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux."}},
+        {"@type":"Question","name":"What if I want to delete pages instead of keeping them?","acceptedAnswer":{"@type":"Answer","text":"Use the Remove Pages tool instead — it lets you specify which pages to delete rather than which to keep."}},
+        {"@type":"Question","name":"Is this the best free way to extract PDF pages fast?","acceptedAnswer":{"@type":"Answer","text":"It's a strong private option — most tools upload your file to a server, while this one processes it entirely on your device."}},
+        {"@type":"Question","name":"Do I need to sign up to extract pages?","acceptedAnswer":{"@type":"Answer","text":"No signup, no account, and no email address required."}}
       ]
     },
     {
@@ -46,20 +61,20 @@
 </header>
 
 <div class="tool-page">
-  <h1>Extract Pages</h1>
-  <p class="desc">Choose a PDF, then tell us which pages to keep. They'll be combined into one new PDF, in the order you list them.</p>
+  <h1>Free Online Extract Pages from PDF Tool</h1>
+  <p class="desc">Choose a PDF, then tell us which pages to keep — free, private, right in your browser.</p>
 
-  <div class="dropzone" id="dz">
-    <span class="dz-icon">📤</span>
+  <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Choose a PDF file to extract pages from">
+    <span class="dz-icon" aria-hidden="true">📤</span>
     <span class="dz-text">Tap to choose a PDF file</span>
-    <span class="dz-sub">or drag and drop</span>
-    <input type="file" id="fileInput" accept="application/pdf">
+    <span class="dz-sub">or drag and drop — PDF format only</span>
+    <input type="file" id="fileInput" accept="application/pdf" aria-label="PDF file input">
   </div>
 
   <div class="file-list" id="fileList"></div>
 
   <div class="options" id="options" style="display:none;">
-    <label>
+    <label for="pagesInput">
       Pages to extract
       <input type="text" id="pagesInput" placeholder="e.g. 1, 3, 5-7">
     </label>
@@ -68,7 +83,7 @@
 
   <button class="btn-primary" id="runBtn" disabled>Extract Pages</button>
 
-  <div class="status" id="status"></div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
 
   <div class="result" id="result">
     <div>✅ Your PDF is ready</div>
@@ -77,29 +92,25 @@
 
   <p class="privacy-note"><b>100% private.</b> Pages are extracted locally in your browser — nothing is uploaded anywhere.</p>
 
-  <div style="margin-top:40px;">
-    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <details>
-        <summary>How do I enter which pages to extract?</summary>
-        <p>Type page numbers separated by commas, and use a hyphen for a range. For example, "1, 3, 5-7" extracts page 1, page 3, and pages 5 through 7.</p>
-      </details>
-      <details>
-        <summary>What order will the extracted pages be in?</summary>
-        <p>They'll appear in the order you type them, so you can also use this tool to reorder select pages — for example, "5, 1, 3".</p>
-      </details>
-      <details>
-        <summary>Can I extract the same page more than once?</summary>
-        <p>Yes, if you list a page number more than once, it will appear multiple times in the output.</p>
-      </details>
-      <details>
-        <summary>What if I want to delete pages instead of keeping them?</summary>
-        <p>Use the Remove Pages tool instead — it lets you specify which pages to delete rather than which to keep.</p>
-      </details>
-    </div>
+  <div style="display:flex;justify-content:center;padding:16px 0;">
+    <script>
+      atOptions = {
+        'key' : '1b2d3323f9dce1fdd50f79ffba59a790',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
   </div>
 
-  <div style="margin-top:40px;">
+  <section style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">About This Tool</h2>
+    <p style="color:var(--text-dim); font-size:.88rem; line-height:1.8;">Extract pages from a PDF online, completely free, without uploading it anywhere. This browser-based tool pulls out exactly the pages you specify and combines them into a new PDF, in the order you list them. Because everything runs locally in your browser, your file stays private and secure the entire time — nothing is sent to a server. It works smoothly on mobile and desktop, including Android, iPhone, Windows, and Mac, in Chrome, Firefox, Edge, or Safari. No signup, no watermark, no limits — just a fast, private way to pull the pages you need.</p>
+  </section>
+
+  <div style="margin-top:32px;">
     <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
     <div class="grid">
       <article class="tool-card">
@@ -117,7 +128,85 @@
         <h3 class="name">Merge PDF</h3>
         <a class="open-tool" href="../merge-pdf/">Open Tool</a>
       </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🔄</span>
+        <h3 class="name">Rotate PDF</h3>
+        <a class="open-tool" href="../rotate-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📝</span>
+        <h3 class="name">PDF to Text</h3>
+        <a class="open-tool" href="../pdf-to-text/">Open Tool</a>
+      </article>
     </div>
+  </div>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Why Extract Pages From a PDF</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Pull out just the pages you need</li>
+      <li>Share a focused excerpt instead of a full document</li>
+      <li>Reorder select pages into a new sequence</li>
+      <li>Create a smaller PDF from a large one</li>
+      <li>Isolate a section for review or printing</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">How to Extract Pages From PDF Online</h2>
+    <ol style="color:var(--text-dim); font-size:.9rem; line-height:2; padding-left:20px;">
+      <li>Tap the upload box and choose your PDF file</li>
+      <li>Type the page numbers to keep, like "1, 3, 5-7"</li>
+      <li>Tap "Extract Pages"</li>
+      <li>Download your new PDF</li>
+    </ol>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Features</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Extract single pages or ranges in one go</li>
+      <li>Pages appear in the order you type them</li>
+      <li>No file upload — 100% browser-based processing</li>
+      <li>Works on Android, iPhone, Windows, and Mac</li>
+      <li>No signup, no watermark, no daily limits</li>
+    </ul>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary>How can I extract pages from a PDF online for free?</summary><p>Choose your PDF above, type the page numbers to keep, and tap Extract Pages. The result downloads directly to your device.</p></details>
+      <details><summary>Is this PDF page extractor really private?</summary><p>Yes. Pages are extracted entirely inside your browser. Your file is never uploaded to a server.</p></details>
+      <details><summary>Can I extract pages without uploading my PDF?</summary><p>Yes. Your PDF stays on your device the entire time — nothing is sent anywhere.</p></details>
+      <details><summary>How do I enter which pages to extract?</summary><p>Type page numbers separated by commas, and use a hyphen for a range. For example, "1, 3, 5-7" extracts page 1, page 3, and pages 5 through 7.</p></details>
+      <details><summary>What order will the extracted pages be in?</summary><p>They'll appear in the order you type them, so you can also use this tool to reorder select pages.</p></details>
+      <details><summary>Can I extract pages on Android?</summary><p>Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox.</p></details>
+      <details><summary>Can I extract pages on iPhone?</summary><p>Yes. It works in Safari and Chrome on iPhone and iPad without installing an app.</p></details>
+      <details><summary>What browsers are supported?</summary><p>Chrome, Firefox, Edge, and Safari on both desktop and mobile.</p></details>
+      <details><summary>Does this work on Windows and Mac?</summary><p>Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux.</p></details>
+      <details><summary>What if I want to delete pages instead of keeping them?</summary><p>Use the Remove Pages tool instead — it lets you specify which pages to delete rather than which to keep.</p></details>
+      <details><summary>Is this the best free way to extract PDF pages fast?</summary><p>It's a strong private option — most tools upload your file to a server, while this one processes it entirely on your device.</p></details>
+      <details><summary>Do I need to sign up to extract pages?</summary><p>No signup, no account, and no email address required.</p></details>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;padding:20px 0;">
+    <script>
+      atOptions = {
+        'key' : '566e9eb29277da62596bafd4097ee973',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/566e9eb29277da62596bafd4097ee973/invoke.js"></script>
   </div>
 </div>
 
@@ -126,4 +215,4 @@
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script src="extract.js"></script>
 </body>
-</html>
+        </html>
