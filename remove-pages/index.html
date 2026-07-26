@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Remove Pages from PDF Free — MyPDFConvert</title>
-<meta name="description" content="Delete specific pages from a PDF file, free and in your browser. No upload, no signup.">
+<title>Free Online Remove Pages from PDF Tool — MyPDFConvert</title>
+<meta name="description" content="Remove pages from a PDF online free, right in your browser. Delete specific pages fast — private, secure, works on mobile and desktop.">
 <link rel="canonical" href="https://mypdfconvert.vercel.app/remove-pages/">
+<meta property="og:title" content="Free Online Remove Pages from PDF Tool — MyPDFConvert">
+<meta property="og:description" content="Remove pages from a PDF online free, right in your browser. Private, secure, no upload.">
+<meta property="og:url" content="https://mypdfconvert.vercel.app/remove-pages/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online Remove Pages from PDF Tool — MyPDFConvert">
+<meta name="twitter:description" content="Remove pages from a PDF online free, right in your browser. Private, secure, no upload.">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -17,15 +24,23 @@
       "applicationCategory": "Utility",
       "operatingSystem": "Any",
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "description": "Delete specific pages from a PDF file, free and in your browser."
+      "description": "Delete specific pages from a PDF, free and online, right in your browser."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type":"Question","name":"How can I remove pages from a PDF online for free?","acceptedAnswer":{"@type":"Answer","text":"Choose your PDF above, type the page numbers to remove, and tap Remove Pages. The result downloads directly to your device."}},
+        {"@type":"Question","name":"Is this PDF page remover really private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pages are removed entirely inside your browser. Your file is never uploaded to a server."}},
+        {"@type":"Question","name":"Can I remove pages without uploading my PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your PDF stays on your device the entire time — nothing is sent anywhere."}},
         {"@type":"Question","name":"How do I enter which pages to remove?","acceptedAnswer":{"@type":"Answer","text":"Type page numbers separated by commas, and use a hyphen for a range. For example, '2, 5-7, 10' removes page 2, pages 5 through 7, and page 10."}},
         {"@type":"Question","name":"Can I remove every page from the PDF?","acceptedAnswer":{"@type":"Answer","text":"No, at least one page must remain in the resulting PDF."}},
         {"@type":"Question","name":"Will the remaining pages keep their original order?","acceptedAnswer":{"@type":"Answer","text":"Yes. The pages you don't remove stay in the same order as the original document."}},
-        {"@type":"Question","name":"What if I want to keep only a few specific pages instead?","acceptedAnswer":{"@type":"Answer","text":"Use the Extract Pages tool instead — it lets you choose exactly which pages to keep rather than which to remove."}}
+        {"@type":"Question","name":"Can I remove pages on Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox."}},
+        {"@type":"Question","name":"Can I remove pages on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in Safari and Chrome on iPhone and iPad without installing an app."}},
+        {"@type":"Question","name":"What browsers are supported?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Firefox, Edge, and Safari on both desktop and mobile."}},
+        {"@type":"Question","name":"What if I want to keep only a few specific pages instead?","acceptedAnswer":{"@type":"Answer","text":"Use the Extract Pages tool instead — it lets you choose exactly which pages to keep rather than which to remove."}},
+        {"@type":"Question","name":"Is this the best free way to remove PDF pages fast?","acceptedAnswer":{"@type":"Answer","text":"It's a strong private option — most tools upload your file to a server, while this one processes it entirely on your device."}},
+        {"@type":"Question","name":"Do I need to sign up to remove pages?","acceptedAnswer":{"@type":"Answer","text":"No signup, no account, and no email address required."}}
       ]
     },
     {
@@ -46,20 +61,20 @@
 </header>
 
 <div class="tool-page">
-  <h1>Remove Pages</h1>
-  <p class="desc">Choose a PDF, then tell us which pages to delete. Everything else stays in the original order.</p>
+  <h1>Free Online Remove Pages from PDF Tool</h1>
+  <p class="desc">Choose a PDF, then tell us which pages to delete — free, private, right in your browser.</p>
 
-  <div class="dropzone" id="dz">
-    <span class="dz-icon">🗑️</span>
+  <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Choose a PDF file to remove pages from">
+    <span class="dz-icon" aria-hidden="true">🗑️</span>
     <span class="dz-text">Tap to choose a PDF file</span>
-    <span class="dz-sub">or drag and drop</span>
-    <input type="file" id="fileInput" accept="application/pdf">
+    <span class="dz-sub">or drag and drop — PDF format only</span>
+    <input type="file" id="fileInput" accept="application/pdf" aria-label="PDF file input">
   </div>
 
   <div class="file-list" id="fileList"></div>
 
   <div class="options" id="options" style="display:none;">
-    <label>
+    <label for="pagesInput">
       Pages to remove
       <input type="text" id="pagesInput" placeholder="e.g. 2, 5-7, 10">
     </label>
@@ -68,7 +83,7 @@
 
   <button class="btn-primary" id="runBtn" disabled>Remove Pages</button>
 
-  <div class="status" id="status"></div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
 
   <div class="result" id="result">
     <div>✅ Your PDF is ready</div>
@@ -77,29 +92,25 @@
 
   <p class="privacy-note"><b>100% private.</b> Pages are removed locally in your browser — nothing is uploaded anywhere.</p>
 
-  <div style="margin-top:40px;">
-    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <details>
-        <summary>How do I enter which pages to remove?</summary>
-        <p>Type page numbers separated by commas, and use a hyphen for a range. For example, "2, 5-7, 10" removes page 2, pages 5 through 7, and page 10.</p>
-      </details>
-      <details>
-        <summary>Can I remove every page from the PDF?</summary>
-        <p>No, at least one page must remain in the resulting PDF.</p>
-      </details>
-      <details>
-        <summary>Will the remaining pages keep their original order?</summary>
-        <p>Yes. The pages you don't remove stay in the same order as the original document.</p>
-      </details>
-      <details>
-        <summary>What if I want to keep only a few specific pages instead?</summary>
-        <p>Use the Extract Pages tool instead — it lets you choose exactly which pages to keep rather than which to remove.</p>
-      </details>
-    </div>
+  <div style="display:flex;justify-content:center;padding:16px 0;">
+    <script>
+      atOptions = {
+        'key' : '1b2d3323f9dce1fdd50f79ffba59a790',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
   </div>
 
-  <div style="margin-top:40px;">
+  <section style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">About This Tool</h2>
+    <p style="color:var(--text-dim); font-size:.88rem; line-height:1.8;">Remove pages from a PDF online, completely free, without uploading it anywhere. This browser-based tool deletes exactly the pages you specify, keeping everything else in the original order. Because everything runs locally in your browser, your file stays private and secure the entire time — nothing is sent to a server. It works smoothly on mobile and desktop, including Android, iPhone, Windows, and Mac, in Chrome, Firefox, Edge, or Safari. No signup, no watermark, no limits — just a fast, private way to clean up a PDF.</p>
+  </section>
+
+  <div style="margin-top:32px;">
     <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
     <div class="grid">
       <article class="tool-card">
@@ -117,7 +128,85 @@
         <h3 class="name">Merge PDF</h3>
         <a class="open-tool" href="../merge-pdf/">Open Tool</a>
       </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🔄</span>
+        <h3 class="name">Rotate PDF</h3>
+        <a class="open-tool" href="../rotate-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">💧</span>
+        <h3 class="name">Add Watermark</h3>
+        <a class="open-tool" href="../watermark-pdf/">Open Tool</a>
+      </article>
     </div>
+  </div>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Why Remove Pages From a PDF</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Delete blank or unnecessary pages</li>
+      <li>Remove confidential or outdated sections</li>
+      <li>Trim a document before sharing</li>
+      <li>Clean up scanned documents</li>
+      <li>Prepare a document for a specific audience</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">How to Remove Pages From PDF Online</h2>
+    <ol style="color:var(--text-dim); font-size:.9rem; line-height:2; padding-left:20px;">
+      <li>Tap the upload box and choose your PDF file</li>
+      <li>Type the page numbers to remove, like "2, 5-7, 10"</li>
+      <li>Tap "Remove Pages"</li>
+      <li>Download your updated PDF</li>
+    </ol>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Features</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Remove single pages or ranges in one go</li>
+      <li>Keeps remaining pages in original order</li>
+      <li>No file upload — 100% browser-based processing</li>
+      <li>Works on Android, iPhone, Windows, and Mac</li>
+      <li>No signup, no watermark, no daily limits</li>
+    </ul>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary>How can I remove pages from a PDF online for free?</summary><p>Choose your PDF above, type the page numbers to remove, and tap Remove Pages. The result downloads directly to your device.</p></details>
+      <details><summary>Is this PDF page remover really private?</summary><p>Yes. Pages are removed entirely inside your browser. Your file is never uploaded to a server.</p></details>
+      <details><summary>Can I remove pages without uploading my PDF?</summary><p>Yes. Your PDF stays on your device the entire time — nothing is sent anywhere.</p></details>
+      <details><summary>How do I enter which pages to remove?</summary><p>Type page numbers separated by commas, and use a hyphen for a range. For example, "2, 5-7, 10" removes page 2, pages 5 through 7, and page 10.</p></details>
+      <details><summary>Can I remove every page from the PDF?</summary><p>No, at least one page must remain in the resulting PDF.</p></details>
+      <details><summary>Will the remaining pages keep their original order?</summary><p>Yes. The pages you don't remove stay in the same order as the original document.</p></details>
+      <details><summary>Can I remove pages on Android?</summary><p>Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox.</p></details>
+      <details><summary>Can I remove pages on iPhone?</summary><p>Yes. It works in Safari and Chrome on iPhone and iPad without installing an app.</p></details>
+      <details><summary>What browsers are supported?</summary><p>Chrome, Firefox, Edge, and Safari on both desktop and mobile.</p></details>
+      <details><summary>What if I want to keep only a few specific pages instead?</summary><p>Use the Extract Pages tool instead — it lets you choose exactly which pages to keep rather than which to remove.</p></details>
+      <details><summary>Is this the best free way to remove PDF pages fast?</summary><p>It's a strong private option — most tools upload your file to a server, while this one processes it entirely on your device.</p></details>
+      <details><summary>Do I need to sign up to remove pages?</summary><p>No signup, no account, and no email address required.</p></details>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;padding:20px 0;">
+    <script>
+      atOptions = {
+        'key' : '566e9eb29277da62596bafd4097ee973',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/566e9eb29277da62596bafd4097ee973/invoke.js"></script>
   </div>
 </div>
 
