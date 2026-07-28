@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Word to PDF Free — MyPDFConvert</title>
-<meta name="description" content="Convert a Word (.docx) document into a PDF, free and in your browser. Extracts text — best for text-based documents.">
+<title>Free Online Word to PDF Tool — MyPDFConvert</title>
+<meta name="description" content="Convert Word to PDF online free, right in your browser. Turn .docx into PDF fast — private, secure, works on mobile and desktop.">
 <link rel="canonical" href="https://mypdfconvert.vercel.app/word-to-pdf/">
+<meta property="og:title" content="Free Online Word to PDF Tool — MyPDFConvert">
+<meta property="og:description" content="Convert Word to PDF online free, right in your browser. Private, secure, no upload.">
+<meta property="og:url" content="https://mypdfconvert.vercel.app/word-to-pdf/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online Word to PDF Tool — MyPDFConvert">
+<meta name="twitter:description" content="Convert Word to PDF online free, right in your browser. Private, secure, no upload.">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -17,14 +24,22 @@
       "applicationCategory": "Utility",
       "operatingSystem": "Any",
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "description": "Convert a Word (.docx) document into a PDF, free and in your browser."
+      "description": "Convert a Word (.docx) document into a PDF, free and online, right in your browser."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type":"Question","name":"How can I convert Word to PDF online for free?","acceptedAnswer":{"@type":"Answer","text":"Choose your .docx file above and tap Convert to PDF. The PDF downloads directly to your device."}},
+        {"@type":"Question","name":"Is this Word to PDF converter really private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Conversion happens entirely inside your browser. Your document is never uploaded to a server."}},
         {"@type":"Question","name":"Will my formatting, images, and tables be preserved?","acceptedAnswer":{"@type":"Answer","text":"No. This tool extracts the text from your Word document and lays it out as plain paragraphs in a new PDF. Fonts, images, tables, and complex layout are not preserved."}},
         {"@type":"Question","name":"What file types are supported?","acceptedAnswer":{"@type":"Answer","text":"Only .docx files (the modern Word format) are supported. Older .doc files are not supported."}},
+        {"@type":"Question","name":"Can I convert Word to PDF on Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox."}},
+        {"@type":"Question","name":"Can I convert Word to PDF on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in Safari and Chrome on iPhone and iPad without installing an app."}},
+        {"@type":"Question","name":"What browsers are supported?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Firefox, Edge, and Safari on both desktop and mobile."}},
+        {"@type":"Question","name":"Does this work on Windows and Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux."}},
         {"@type":"Question","name":"Why isn't full formatting supported?","acceptedAnswer":{"@type":"Answer","text":"Accurately recreating a Word document's exact layout requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably converting the text instead."}},
+        {"@type":"Question","name":"Is this the best free way to convert Word to PDF fast?","acceptedAnswer":{"@type":"Answer","text":"It's a strong private option — most converters upload your document to a server, while this one processes it entirely on your device."}},
+        {"@type":"Question","name":"Do I need to sign up to convert Word to PDF?","acceptedAnswer":{"@type":"Answer","text":"No signup, no account, and no email address required."}},
         {"@type":"Question","name":"Is my document uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The conversion happens entirely in your browser — your file is never uploaded to a server."}}
       ]
     },
@@ -46,21 +61,21 @@
 </header>
 
 <div class="tool-page">
-  <h1>Word to PDF</h1>
-  <p class="desc">Converts the text of a .docx file into a new PDF. Best for text-based documents — layout, fonts, and images are not preserved, only the text.</p>
+  <h1>Free Online Word to PDF Tool</h1>
+  <p class="desc">Converts the text of a .docx file into a new PDF — free, private, right in your browser.</p>
 
-  <div class="dropzone" id="dz">
-    <span class="dz-icon">📃</span>
+  <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Choose a Word file to convert to PDF">
+    <span class="dz-icon" aria-hidden="true">📃</span>
     <span class="dz-text">Tap to choose a .docx file</span>
-    <span class="dz-sub">or drag and drop</span>
-    <input type="file" id="fileInput" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+    <span class="dz-sub">or drag and drop — .docx format only</span>
+    <input type="file" id="fileInput" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-label="Word file input">
   </div>
 
   <div class="file-list" id="fileList"></div>
 
   <button class="btn-primary" id="runBtn" disabled>Convert to PDF</button>
 
-  <div class="status" id="status"></div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
 
   <div class="result" id="result">
     <div>✅ Your PDF is ready</div>
@@ -82,29 +97,12 @@
     <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
   </div>
 
-  <div style="margin-top:40px;">
-    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <details>
-        <summary>Will my formatting, images, and tables be preserved?</summary>
-        <p>No. This tool extracts the text from your Word document and lays it out as plain paragraphs in a new PDF. Fonts, images, tables, and complex layout are not preserved.</p>
-      </details>
-      <details>
-        <summary>What file types are supported?</summary>
-        <p>Only .docx files (the modern Word format) are supported. Older .doc files are not supported.</p>
-      </details>
-      <details>
-        <summary>Why isn't full formatting supported?</summary>
-        <p>Accurately recreating a Word document's exact layout requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably converting the text instead.</p>
-      </details>
-      <details>
-        <summary>Is my document uploaded anywhere?</summary>
-        <p>No. The conversion happens entirely in your browser — your file is never uploaded to a server.</p>
-      </details>
-    </div>
-  </div>
+  <section style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">About This Tool</h2>
+    <p style="color:var(--text-dim); font-size:.88rem; line-height:1.8;">Convert Word to PDF online, completely free, without uploading your document anywhere. This browser-based tool reads the text of your .docx file and lays it out as plain paragraphs in a new, standard PDF. Because everything runs locally in your browser, your document stays private and secure the entire time — nothing is sent to a server. It works smoothly on mobile and desktop, including Android, iPhone, Windows, and Mac, in Chrome, Firefox, Edge, or Safari. It works best on text-based documents; layout, fonts, and images are not preserved. No signup, no watermark, no limits.</p>
+  </section>
 
-  <div style="margin-top:40px;">
+  <div style="margin-top:32px;">
     <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
     <div class="grid">
       <article class="tool-card">
@@ -122,6 +120,71 @@
         <h3 class="name">Merge PDF</h3>
         <a class="open-tool" href="../merge-pdf/">Open Tool</a>
       </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">✂️</span>
+        <h3 class="name">Split PDF</h3>
+        <a class="open-tool" href="../split-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">💧</span>
+        <h3 class="name">Add Watermark</h3>
+        <a class="open-tool" href="../watermark-pdf/">Open Tool</a>
+      </article>
+    </div>
+  </div>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Why Convert Word to PDF</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Share a document that can't be easily edited</li>
+      <li>Ensure consistent viewing across devices</li>
+      <li>Prepare a document for printing or archiving</li>
+      <li>Submit a document in a widely accepted format</li>
+      <li>Lock in content before sending it out</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">How to Convert Word to PDF Online</h2>
+    <ol style="color:var(--text-dim); font-size:.9rem; line-height:2; padding-left:20px;">
+      <li>Tap the upload box and choose your .docx file</li>
+      <li>Tap "Convert to PDF"</li>
+      <li>Wait a moment while the PDF is built</li>
+      <li>Download your finished PDF</li>
+    </ol>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Features</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Converts .docx text into a clean, paginated PDF</li>
+      <li>Automatic page breaks as content flows</li>
+      <li>No file upload — 100% browser-based processing</li>
+      <li>Works on Android, iPhone, Windows, and Mac</li>
+      <li>No signup, no watermark, no daily limits</li>
+    </ul>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary>How can I convert Word to PDF online for free?</summary><p>Choose your .docx file above and tap Convert to PDF. The PDF downloads directly to your device.</p></details>
+      <details><summary>Is this Word to PDF converter really private?</summary><p>Yes. Conversion happens entirely inside your browser. Your document is never uploaded to a server.</p></details>
+      <details><summary>Will my formatting, images, and tables be preserved?</summary><p>No. This tool extracts the text from your Word document and lays it out as plain paragraphs in a new PDF. Fonts, images, tables, and complex layout are not preserved.</p></details>
+      <details><summary>What file types are supported?</summary><p>Only .docx files (the modern Word format) are supported. Older .doc files are not supported.</p></details>
+      <details><summary>Can I convert Word to PDF on Android?</summary><p>Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox.</p></details>
+      <details><summary>Can I convert Word to PDF on iPhone?</summary><p>Yes. It works in Safari and Chrome on iPhone and iPad without installing an app.</p></details>
+      <details><summary>What browsers are supported?</summary><p>Chrome, Firefox, Edge, and Safari on both desktop and mobile.</p></details>
+      <details><summary>Does this work on Windows and Mac?</summary><p>Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux.</p></details>
+      <details><summary>Why isn't full formatting supported?</summary><p>Accurately recreating a Word document's exact layout requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably converting the text instead.</p></details>
+      <details><summary>Is this the best free way to convert Word to PDF fast?</summary><p>It's a strong private option — most converters upload your document to a server, while this one processes it entirely on your device.</p></details>
+      <details><summary>Do I need to sign up to convert Word to PDF?</summary><p>No signup, no account, and no email address required.</p></details>
+      <details><summary>Is my document uploaded anywhere?</summary><p>No. The conversion happens entirely in your browser — your file is never uploaded to a server.</p></details>
     </div>
   </div>
 
