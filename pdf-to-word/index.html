@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PDF to Word Free — MyPDFConvert</title>
-<meta name="description" content="Convert a PDF into an editable Word (.docx) document, free and in your browser. Extracts text — best for text-based PDFs.">
+<title>Free Online PDF to Word Tool — MyPDFConvert</title>
+<meta name="description" content="Convert PDF to Word online free, right in your browser. Get an editable .docx fast — private, secure, works on mobile and desktop.">
 <link rel="canonical" href="https://mypdfconvert.vercel.app/pdf-to-word/">
+<meta property="og:title" content="Free Online PDF to Word Tool — MyPDFConvert">
+<meta property="og:description" content="Convert PDF to Word online free, right in your browser. Private, secure, no upload.">
+<meta property="og:url" content="https://mypdfconvert.vercel.app/pdf-to-word/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online PDF to Word Tool — MyPDFConvert">
+<meta name="twitter:description" content="Convert PDF to Word online free, right in your browser. Private, secure, no upload.">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -17,15 +24,23 @@
       "applicationCategory": "Utility",
       "operatingSystem": "Any",
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "description": "Convert a PDF into an editable Word (.docx) document, free and in your browser."
+      "description": "Convert a PDF into an editable Word (.docx) document, free and online, right in your browser."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type":"Question","name":"How can I convert PDF to Word online for free?","acceptedAnswer":{"@type":"Answer","text":"Choose your PDF above and tap Convert to Word. An editable .docx file downloads directly to your device."}},
+        {"@type":"Question","name":"Is this PDF to Word converter really private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Conversion happens entirely inside your browser. Your file is never uploaded to a server."}},
         {"@type":"Question","name":"Will my formatting, images, and tables be preserved?","acceptedAnswer":{"@type":"Answer","text":"No. This tool extracts the readable text from your PDF and places it into a real, editable .docx file. Layout, fonts, images, and tables are not preserved — only the text content."}},
-        {"@type":"Question","name":"Why isn't full formatting supported?","acceptedAnswer":{"@type":"Answer","text":"Accurately recreating a PDF's exact layout in Word requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably extracting the text instead."}},
         {"@type":"Question","name":"Will the file open in Microsoft Word?","acceptedAnswer":{"@type":"Answer","text":"Yes. The output is a standard .docx file that opens in Microsoft Word, Google Docs, LibreOffice, and most other word processors, and the text is fully editable."}},
-        {"@type":"Question","name":"Does this work on scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"No. Scanned or image-based PDFs don't contain real text to extract. This tool works best on PDFs created from Word, Google Docs, or similar text-based sources."}}
+        {"@type":"Question","name":"Does this work on scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"No. Scanned or image-based PDFs don't contain real text to extract. This tool works best on PDFs created from Word, Google Docs, or similar text-based sources."}},
+        {"@type":"Question","name":"Can I convert PDF to Word on Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox."}},
+        {"@type":"Question","name":"Can I convert PDF to Word on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in Safari and Chrome on iPhone and iPad without installing an app."}},
+        {"@type":"Question","name":"What browsers are supported?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Firefox, Edge, and Safari on both desktop and mobile."}},
+        {"@type":"Question","name":"Does this work on Windows and Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux."}},
+        {"@type":"Question","name":"Why isn't full formatting supported?","acceptedAnswer":{"@type":"Answer","text":"Accurately recreating a PDF's exact layout in Word requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably extracting the text instead."}},
+        {"@type":"Question","name":"Is this the best free way to convert PDF to Word fast?","acceptedAnswer":{"@type":"Answer","text":"It's a strong private option — most converters upload your file to a server, while this one processes it entirely on your device."}},
+        {"@type":"Question","name":"Do I need to sign up to convert PDF to Word?","acceptedAnswer":{"@type":"Answer","text":"No signup, no account, and no email address required."}}
       ]
     },
     {
@@ -46,21 +61,21 @@
 </header>
 
 <div class="tool-page">
-  <h1>PDF to Word</h1>
-  <p class="desc">Converts the readable text of your PDF into an editable Word (.docx) file. Best for text-based PDFs — layout and images are not preserved, only the text.</p>
+  <h1>Free Online PDF to Word Tool</h1>
+  <p class="desc">Converts the text of your PDF into an editable Word (.docx) file — free, private, right in your browser.</p>
 
-  <div class="dropzone" id="dz">
-    <span class="dz-icon">📄</span>
+  <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Choose a PDF file to convert to Word">
+    <span class="dz-icon" aria-hidden="true">📄</span>
     <span class="dz-text">Tap to choose a PDF file</span>
-    <span class="dz-sub">or drag and drop</span>
-    <input type="file" id="fileInput" accept="application/pdf">
+    <span class="dz-sub">or drag and drop — PDF format only</span>
+    <input type="file" id="fileInput" accept="application/pdf" aria-label="PDF file input">
   </div>
 
   <div class="file-list" id="fileList"></div>
 
   <button class="btn-primary" id="runBtn" disabled>Convert to Word</button>
 
-  <div class="status" id="status"></div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
 
   <div class="result" id="result">
     <div>✅ Your Word document is ready</div>
@@ -82,31 +97,19 @@
     <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
   </div>
 
-  <div style="margin-top:40px;">
-    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <details>
-        <summary>Will my formatting, images, and tables be preserved?</summary>
-        <p>No. This tool extracts the readable text from your PDF and places it into a real, editable .docx file. Layout, fonts, images, and tables are not preserved — only the text content.</p>
-      </details>
-      <details>
-        <summary>Why isn't full formatting supported?</summary>
-        <p>Accurately recreating a PDF's exact layout in Word requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably extracting the text instead.</p>
-      </details>
-      <details>
-        <summary>Will the file open in Microsoft Word?</summary>
-        <p>Yes. The output is a standard .docx file that opens in Microsoft Word, Google Docs, LibreOffice, and most other word processors, and the text is fully editable.</p>
-      </details>
-      <details>
-        <summary>Does this work on scanned PDFs?</summary>
-        <p>No. Scanned or image-based PDFs don't contain real text to extract. This tool works best on PDFs created from Word, Google Docs, or similar text-based sources.</p>
-      </details>
-    </div>
-  </div>
+  <section style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">About This Tool</h2>
+    <p style="color:var(--text-dim); font-size:.88rem; line-height:1.8;">Convert PDF to Word online, completely free, without uploading your file anywhere. This browser-based tool extracts the readable text from your PDF and builds a real, editable .docx file you can open in Microsoft Word, Google Docs, or LibreOffice. Because everything runs locally in your browser, your file stays private and secure the entire time — nothing is sent to a server. It works smoothly on mobile and desktop, including Android, iPhone, Windows, and Mac, in Chrome, Firefox, Edge, or Safari. It works best on text-based PDFs — layout and images are not preserved, only the text. No signup, no watermark, no limits.</p>
+  </section>
 
-  <div style="margin-top:40px;">
+  <div style="margin-top:32px;">
     <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
     <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📃</span>
+        <h3 class="name">Word to PDF</h3>
+        <a class="open-tool" href="../word-to-pdf/">Open Tool</a>
+      </article>
       <article class="tool-card">
         <span class="icon" aria-hidden="true">📝</span>
         <h3 class="name">PDF to Text</h3>
@@ -122,6 +125,66 @@
         <h3 class="name">Merge PDF</h3>
         <a class="open-tool" href="../merge-pdf/">Open Tool</a>
       </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">✂️</span>
+        <h3 class="name">Split PDF</h3>
+        <a class="open-tool" href="../split-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📤</span>
+        <h3 class="name">Extract Pages</h3>
+        <a class="open-tool" href="../extract-pages/">Open Tool</a>
+      </article>
+    </div>
+  </div>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Why Convert PDF to Word</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Edit content that's locked inside a PDF</li>
+      <li>Reuse text in a new document</li>
+      <li>Update an old report or letter</li>
+      <li>Copy text without manual retyping</li>
+      <li>Prepare content for further formatting</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">How to Convert PDF to Word Online</h2>
+    <ol style="color:var(--text-dim); font-size:.9rem; line-height:2; padding-left:20px;">
+      <li>Tap the upload box and choose your PDF file</li>
+      <li>Tap "Convert to Word"</li>
+      <li>Wait a moment while the document is built</li>
+      <li>Download your .docx file</li>
+    </ol>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Features</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Produces a standard, fully editable .docx file</li>
+      <li>Works with Microsoft Word, Google Docs, and LibreOffice</li>
+      <li>No file upload — 100% browser-based processing</li>
+      <li>Works on Android, iPhone, Windows, and Mac</li>
+      <li>No signup, no watermark, no daily limits</li>
+    </ul>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary>How can I convert PDF to Word online for free?</summary><p>Choose your PDF above and tap Convert to Word. An editable .docx file downloads directly to your device.</p></details>
+      <details><summary>Is this PDF to Word converter really private?</summary><p>Yes. Conversion happens entirely inside your browser. Your file is never uploaded to a server.</p></details>
+      <details><summary>Will my formatting, images, and tables be preserved?</summary><p>No. This tool extracts the readable text from your PDF and places it into a real, editable .docx file. Layout, fonts, images, and tables are not preserved — only the text content.</p></details>
+      <details><summary>Will the file open in Microsoft Word?</summary><p>Yes. The output is a standard .docx file that opens in Microsoft Word, Google Docs, LibreOffice, and most other word processors, and the text is fully editable.</p></details>
+      <details><summary>Does this work on scanned PDFs?</summary><p>No. Scanned or image-based PDFs don't contain real text to extract. This tool works best on PDFs created from Word, Google Docs, or similar text-based sources.</p></details>
+      <details><summary>Can I convert PDF to Word on Android?</summary><p>Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox.</p></details>
+      <details><summary>Can I convert PDF to Word on iPhone?</summary><p>Yes. It works in Safari and Chrome on iPhone and iPad without installing an app.</p></details>
+      <details><summary>What browsers are supported?</summary><p>Chrome, Firefox, Edge, and Safari on both desktop and mobile.</p></details>
+      <details><summary>Does this work on Windows and Mac?</summary><p>Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux.</p></details>
+      <details><summary>Why isn't full formatting supported?</summary><p>Accurately recreating a PDF's exact layout in Word requires heavy server-side processing. To keep this tool free, private, and running entirely in your browser, we focus on reliably extracting the text instead.</p></details>
+      <details><summary>Is this the best free way to convert PDF to Word fast?</summary><p>It's a strong private option — most converters upload your file to a server, while this one processes it entirely on your device.</p></details>
+      <details><summary>Do I need to sign up to convert PDF to Word?</summary><p>No signup, no account, and no email address required.</p></details>
     </div>
   </div>
 
@@ -145,4 +208,4 @@
 <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="pdf-to-word.js"></script>
 </body>
-      </html>
+  </html>
