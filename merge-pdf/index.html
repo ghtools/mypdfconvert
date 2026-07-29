@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Merge PDF Files Free — MyPDFConvert</title>
-<meta name="description" content="Combine multiple PDF files into one, free and in your browser. No upload, no signup.">
+<title>Free Online Merge PDF Tool — MyPDFConvert</title>
+<meta name="description" content="Merge PDF files online free, right in your browser. Combine multiple PDFs into one fast — private, secure, works on mobile and desktop.">
 <link rel="canonical" href="https://mypdfconvert.vercel.app/merge-pdf/">
+<meta property="og:title" content="Free Online Merge PDF Tool — MyPDFConvert">
+<meta property="og:description" content="Merge PDF files online free, right in your browser. Private, secure, no upload.">
+<meta property="og:url" content="https://mypdfconvert.vercel.app/merge-pdf/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online Merge PDF Tool — MyPDFConvert">
+<meta name="twitter:description" content="Merge PDF files online free, right in your browser. Private, secure, no upload.">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -17,15 +24,23 @@
       "applicationCategory": "Utility",
       "operatingSystem": "Any",
       "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "description": "Combine multiple PDF files into one, free and in your browser."
+      "description": "Combine multiple PDF files into one, free and online, right in your browser."
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type":"Question","name":"How can I merge PDF files online for free?","acceptedAnswer":{"@type":"Answer","text":"Choose two or more PDF files above, reorder them if needed, and tap Merge PDFs. The combined file downloads directly to your device."}},
+        {"@type":"Question","name":"Is this PDF merger really private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Merging happens entirely inside your browser. Your files are never uploaded to a server."}},
+        {"@type":"Question","name":"Can I merge PDFs without uploading them?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your files stay on your device the entire time — nothing is sent anywhere."}},
         {"@type":"Question","name":"Can I merge more than two PDFs at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can select as many PDF files as you like — add them one at a time or all together, then reorder them before merging."}},
         {"@type":"Question","name":"Can I change the order of the pages before merging?","acceptedAnswer":{"@type":"Answer","text":"Yes. After choosing your files, drag and drop them in the list to set the order they'll appear in the final PDF."}},
-        {"@type":"Question","name":"Will merging reduce the quality of my PDFs?","acceptedAnswer":{"@type":"Answer","text":"No. Merging simply combines the original pages as-is, with no re-compression or quality loss."}},
-        {"@type":"Question","name":"Is there a limit to how many files I can merge?","acceptedAnswer":{"@type":"Answer","text":"There's no fixed limit — the only constraint is your device's available memory, since everything runs in your browser."}}
+        {"@type":"Question","name":"Will merging reduce the quality of my PDFs without losing quality?","acceptedAnswer":{"@type":"Answer","text":"No. Merging simply combines the original pages as-is, with no re-compression or quality loss."}},
+        {"@type":"Question","name":"Can I merge PDFs on Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox."}},
+        {"@type":"Question","name":"Can I merge PDFs on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in Safari and Chrome on iPhone and iPad without installing an app."}},
+        {"@type":"Question","name":"What browsers are supported?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Firefox, Edge, and Safari on both desktop and mobile."}},
+        {"@type":"Question","name":"Does this work on Windows and Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux."}},
+        {"@type":"Question","name":"Is there a limit to how many files I can merge?","acceptedAnswer":{"@type":"Answer","text":"There's no fixed limit — the only constraint is your device's available memory, since everything runs in your browser."}},
+        {"@type":"Question","name":"Is this the best free way to merge PDFs fast?","acceptedAnswer":{"@type":"Answer","text":"It's a strong private option — most mergers upload your files to a server, while this one processes them entirely on your device."}}
       ]
     },
     {
@@ -46,14 +61,14 @@
 </header>
 
 <div class="tool-page">
-  <h1>Merge PDF</h1>
-  <p class="desc">Combine two or more PDF files into a single document. Drag to reorder before merging.</p>
+  <h1>Free Online Merge PDF Tool</h1>
+  <p class="desc">Combine two or more PDF files into a single document — free, private, right in your browser.</p>
 
-  <div class="dropzone" id="dz">
-    <span class="dz-icon">🧩</span>
+  <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Choose PDF files to merge">
+    <span class="dz-icon" aria-hidden="true">🧩</span>
     <span class="dz-text">Tap to choose PDF files</span>
     <span class="dz-sub">or drag and drop — choose 2 or more</span>
-    <input type="file" id="fileInput" accept="application/pdf" multiple>
+    <input type="file" id="fileInput" accept="application/pdf" multiple aria-label="PDF file input">
   </div>
 
   <div class="file-list" id="fileList"></div>
@@ -61,7 +76,7 @@
   <button class="btn-primary" id="runBtn" disabled>Merge PDFs</button>
 
   <div class="progress-wrap" id="progWrap"><div class="progress-bar" id="progBar"></div></div>
-  <div class="status" id="status"></div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
 
   <div class="result" id="result">
     <div>✅ Your merged PDF is ready</div>
@@ -83,29 +98,12 @@
     <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
   </div>
 
-  <div style="margin-top:40px;">
-    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <details>
-        <summary>Can I merge more than two PDFs at once?</summary>
-        <p>Yes. You can select as many PDF files as you like — add them one at a time or all together, then reorder them before merging.</p>
-      </details>
-      <details>
-        <summary>Can I change the order of the pages before merging?</summary>
-        <p>Yes. After choosing your files, drag and drop them in the list to set the order they'll appear in the final PDF.</p>
-      </details>
-      <details>
-        <summary>Will merging reduce the quality of my PDFs?</summary>
-        <p>No. Merging simply combines the original pages as-is, with no re-compression or quality loss.</p>
-      </details>
-      <details>
-        <summary>Is there a limit to how many files I can merge?</summary>
-        <p>There's no fixed limit — the only constraint is your device's available memory, since everything runs in your browser.</p>
-      </details>
-    </div>
-  </div>
+  <section style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">About This Tool</h2>
+    <p style="color:var(--text-dim); font-size:.88rem; line-height:1.8;">Merge PDF files online, completely free, without uploading them anywhere. This browser-based tool combines two or more PDFs into a single document, in the order you arrange them. Because everything runs locally in your browser, your files stay private and secure the entire time — nothing is sent to a server. It works smoothly on mobile and desktop, including Android, iPhone, Windows, and Mac, in Chrome, Firefox, Edge, or Safari. No signup, no watermark, no limits — just a fast, private way to combine your PDFs.</p>
+  </section>
 
-  <div style="margin-top:40px;">
+  <div style="margin-top:32px;">
     <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
     <div class="grid">
       <article class="tool-card">
@@ -123,6 +121,71 @@
         <h3 class="name">Compress PDF</h3>
         <a class="open-tool" href="../compress-pdf/">Open Tool</a>
       </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🔄</span>
+        <h3 class="name">Rotate PDF</h3>
+        <a class="open-tool" href="../rotate-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">💧</span>
+        <h3 class="name">Add Watermark</h3>
+        <a class="open-tool" href="../watermark-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🗑️</span>
+        <h3 class="name">Remove Pages</h3>
+        <a class="open-tool" href="../remove-pages/">Open Tool</a>
+      </article>
+    </div>
+  </div>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Why Merge PDFs</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Combine related documents into one file</li>
+      <li>Send a single attachment instead of many</li>
+      <li>Build a complete report from separate parts</li>
+      <li>Organize scanned pages into one document</li>
+      <li>Keep everything in a clear reading order</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">How to Merge PDF Online</h2>
+    <ol style="color:var(--text-dim); font-size:.9rem; line-height:2; padding-left:20px;">
+      <li>Tap the upload box and choose 2 or more PDF files</li>
+      <li>Drag to reorder the files if needed</li>
+      <li>Tap "Merge PDFs"</li>
+      <li>Download your combined PDF</li>
+    </ol>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Features</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Combine unlimited PDF files into one</li>
+      <li>Drag-and-drop reordering before merging</li>
+      <li>Original page quality preserved</li>
+      <li>No file upload — 100% browser-based processing</li>
+      <li>Works on Android, iPhone, Windows, and Mac</li>
+    </ul>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary>How can I merge PDF files online for free?</summary><p>Choose two or more PDF files above, reorder them if needed, and tap Merge PDFs. The combined file downloads directly to your device.</p></details>
+      <details><summary>Is this PDF merger really private?</summary><p>Yes. Merging happens entirely inside your browser. Your files are never uploaded to a server.</p></details>
+      <details><summary>Can I merge PDFs without uploading them?</summary><p>Yes. Your files stay on your device the entire time — nothing is sent anywhere.</p></details>
+      <details><summary>Can I merge more than two PDFs at once?</summary><p>Yes. You can select as many PDF files as you like — add them one at a time or all together, then reorder them before merging.</p></details>
+      <details><summary>Can I change the order of the pages before merging?</summary><p>Yes. After choosing your files, drag and drop them in the list to set the order they'll appear in the final PDF.</p></details>
+      <details><summary>Will merging reduce the quality of my PDFs?</summary><p>No. Merging simply combines the original pages as-is, with no re-compression or quality loss.</p></details>
+      <details><summary>Can I merge PDFs on Android?</summary><p>Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox.</p></details>
+      <details><summary>Can I merge PDFs on iPhone?</summary><p>Yes. It works in Safari and Chrome on iPhone and iPad without installing an app.</p></details>
+      <details><summary>What browsers are supported?</summary><p>Chrome, Firefox, Edge, and Safari on both desktop and mobile.</p></details>
+      <details><summary>Does this work on Windows and Mac?</summary><p>Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux.</p></details>
+      <details><summary>Is there a limit to how many files I can merge?</summary><p>There's no fixed limit — the only constraint is your device's available memory, since everything runs in your browser.</p></details>
+      <details><summary>Is this the best free way to merge PDFs fast?</summary><p>It's a strong private option — most mergers upload your files to a server, while this one processes them entirely on your device.</p></details>
     </div>
   </div>
 
@@ -145,4 +208,4 @@
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script src="merge.js"></script>
 </body>
-    </html>
+  </html>
