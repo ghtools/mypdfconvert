@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Reorder PDF Pages Tool — MyPDFConvert</title>
+<meta name="description" content="Reorder PDF pages online free, right in your browser. Rearrange pages into any order fast — private, secure, works on mobile and desktop.">
+<link rel="canonical" href="https://mypdfconvert.vercel.app/reorder-pages/">
+<meta property="og:title" content="Free Online Reorder PDF Pages Tool — MyPDFConvert">
+<meta property="og:description" content="Reorder PDF pages online free, right in your browser. Private, secure, no upload.">
+<meta property="og:url" content="https://mypdfconvert.vercel.app/reorder-pages/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free Online Reorder PDF Pages Tool — MyPDFConvert">
+<meta name="twitter:description" content="Reorder PDF pages online free, right in your browser. Private, secure, no upload.">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Reorder Pages — MyPDFConvert",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "description": "Rearrange the pages of a PDF into any order, free and online, right in your browser."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How can I reorder PDF pages online for free?","acceptedAnswer":{"@type":"Answer","text":"Choose your PDF above, type the new page order separated by commas, and tap Reorder Pages. The result downloads directly to your device."}},
+        {"@type":"Question","name":"Is this page reorder tool really private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Reordering happens entirely inside your browser. Your file is never uploaded to a server."}},
+        {"@type":"Question","name":"Do I need to include every page in the new order?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every page number from 1 to the total page count must appear exactly once in your new order."}},
+        {"@type":"Question","name":"What if I only want to move one page?","acceptedAnswer":{"@type":"Answer","text":"List all pages in the order you want, moving just the one page. For example, to move page 5 to the front of a 6-page document, enter '5,1,2,3,4,6'."}},
+        {"@type":"Question","name":"Can I reorder pages on Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox."}},
+        {"@type":"Question","name":"Can I reorder pages on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in Safari and Chrome on iPhone and iPad without installing an app."}},
+        {"@type":"Question","name":"What browsers are supported?","acceptedAnswer":{"@type":"Answer","text":"Chrome, Firefox, Edge, and Safari on both desktop and mobile."}},
+        {"@type":"Question","name":"Does this work on Windows and Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux."}},
+        {"@type":"Question","name":"Will reordering affect page quality?","acceptedAnswer":{"@type":"Answer","text":"No. Pages are simply rearranged as-is, with no re-compression or quality loss."}},
+        {"@type":"Question","name":"What if I want to remove a page instead of reordering?","acceptedAnswer":{"@type":"Answer","text":"Use the Remove Pages tool instead, which lets you delete specific pages."}},
+        {"@type":"Question","name":"Is this the best free way to reorder PDF pages fast?","acceptedAnswer":{"@type":"Answer","text":"It's a strong private option — most tools upload your file to a server, while this one processes it entirely on your device."}},
+        {"@type":"Question","name":"Do I need to sign up to reorder pages?","acceptedAnswer":{"@type":"Answer","text":"No signup, no account, and no email address required."}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mypdfconvert.vercel.app/"},
+        {"@type":"ListItem","position":2,"name":"Reorder Pages","item":"https://mypdfconvert.vercel.app/reorder-pages/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <a class="logo" href="../"><span>My</span>PDFConvert</a>
+  <nav><a href="../">All Tools</a></nav>
+</header>
+
+<div class="tool-page">
+  <h1>Free Online Reorder PDF Pages Tool</h1>
+  <p class="desc">Rearrange every page into a new order — free, private, right in your browser.</p>
+
+  <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Choose a PDF file to reorder">
+    <span class="dz-icon" aria-hidden="true">🔀</span>
+    <span class="dz-text">Tap to choose a PDF file</span>
+    <span class="dz-sub">or drag and drop — PDF format only</span>
+    <input type="file" id="fileInput" accept="application/pdf" aria-label="PDF file input">
+  </div>
+
+  <div class="file-list" id="fileList"></div>
+
+  <div class="options" id="options" style="display:none;">
+    <label for="orderInput">
+      New page order
+      <input type="text" id="orderInput" placeholder="e.g. 3,1,2,4">
+    </label>
+    <p class="status" id="pageCountMsg" style="margin-top:0;"></p>
+  </div>
+
+  <button class="btn-primary" id="runBtn" disabled>Reorder Pages</button>
+
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <div class="result" id="result">
+    <div>✅ Your reordered PDF is ready</div>
+    <a class="download" id="downloadLink" download="reordered.pdf">Download PDF</a>
+  </div>
+
+  <p class="privacy-note"><b>100% private.</b> Pages are reordered locally in your browser — nothing is uploaded anywhere.</p>
+
+  <div style="display:flex;justify-content:center;padding:16px 0;">
+    <script>
+      atOptions = {
+        'key' : '1b2d3323f9dce1fdd50f79ffba59a790',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/1b2d3323f9dce1fdd50f79ffba59a790/invoke.js"></script>
+  </div>
+
+  <section style="margin-top:40px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">About This Tool</h2>
+    <p style="color:var(--text-dim); font-size:.88rem; line-height:1.8;">Reorder PDF pages online, completely free, without uploading it anywhere. This browser-based tool rearranges every page into the exact order you specify. Because everything runs locally in your browser, your file stays private and secure the entire time — nothing is sent to a server. It works smoothly on mobile and desktop, including Android, iPhone, Windows, and Mac, in Chrome, Firefox, Edge, or Safari. No signup, no watermark, no limits — just a fast, private way to rearrange your document.</p>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Related Tools</h2>
+    <div class="grid">
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🗑️</span>
+        <h3 class="name">Remove Pages</h3>
+        <a class="open-tool" href="../remove-pages/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📤</span>
+        <h3 class="name">Extract Pages</h3>
+        <a class="open-tool" href="../extract-pages/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🧩</span>
+        <h3 class="name">Merge PDF</h3>
+        <a class="open-tool" href="../merge-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">✂️</span>
+        <h3 class="name">Split PDF</h3>
+        <a class="open-tool" href="../split-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">🔄</span>
+        <h3 class="name">Rotate PDF</h3>
+        <a class="open-tool" href="../rotate-pdf/">Open Tool</a>
+      </article>
+      <article class="tool-card">
+        <span class="icon" aria-hidden="true">📦</span>
+        <h3 class="name">Compress PDF</h3>
+        <a class="open-tool" href="../compress-pdf/">Open Tool</a>
+      </article>
+    </div>
+  </div>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Why Reorder PDF Pages</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Fix pages scanned in the wrong order</li>
+      <li>Move a cover page or summary to the front</li>
+      <li>Reorganize a document before sharing</li>
+      <li>Group related sections together</li>
+      <li>Prepare a document for a specific reading flow</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">How to Reorder PDF Pages Online</h2>
+    <ol style="color:var(--text-dim); font-size:.9rem; line-height:2; padding-left:20px;">
+      <li>Tap the upload box and choose your PDF file</li>
+      <li>Type the new page order, like "3,1,2,4"</li>
+      <li>Tap "Reorder Pages"</li>
+      <li>Download your rearranged PDF</li>
+    </ol>
+  </section>
+
+  <section style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:12px;">Features</h2>
+    <ul style="color:var(--text-dim); font-size:.9rem; line-height:1.9; padding-left:20px;">
+      <li>Full control over the exact new page order</li>
+      <li>Validates that every page is accounted for</li>
+      <li>No file upload — 100% browser-based processing</li>
+      <li>Works on Android, iPhone, Windows, and Mac</li>
+      <li>No signup, no watermark, no daily limits</li>
+    </ul>
+  </section>
+
+  <div style="margin-top:32px;">
+    <h2 style="font-size:1.2rem; margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary>How can I reorder PDF pages online for free?</summary><p>Choose your PDF above, type the new page order separated by commas, and tap Reorder Pages. The result downloads directly to your device.</p></details>
+      <details><summary>Is this page reorder tool really private?</summary><p>Yes. Reordering happens entirely inside your browser. Your file is never uploaded to a server.</p></details>
+      <details><summary>Do I need to include every page in the new order?</summary><p>Yes. Every page number from 1 to the total page count must appear exactly once in your new order.</p></details>
+      <details><summary>What if I only want to move one page?</summary><p>List all pages in the order you want, moving just the one page. For example, to move page 5 to the front of a 6-page document, enter "5,1,2,3,4,6".</p></details>
+      <details><summary>Can I reorder pages on Android?</summary><p>Yes. This tool works in any modern mobile browser on Android, including Chrome and Firefox.</p></details>
+      <details><summary>Can I reorder pages on iPhone?</summary><p>Yes. It works in Safari and Chrome on iPhone and iPad without installing an app.</p></details>
+      <details><summary>What browsers are supported?</summary><p>Chrome, Firefox, Edge, and Safari on both desktop and mobile.</p></details>
+      <details><summary>Does this work on Windows and Mac?</summary><p>Yes. Since it runs in your browser, it works the same on Windows, Mac, and Linux.</p></details>
+      <details><summary>Will reordering affect page quality?</summary><p>No. Pages are simply rearranged as-is, with no re-compression or quality loss.</p></details>
+      <details><summary>What if I want to remove a page instead of reordering?</summary><p>Use the Remove Pages tool instead, which lets you delete specific pages.</p></details>
+      <details><summary>Is this the best free way to reorder PDF pages fast?</summary><p>It's a strong private option — most tools upload your file to a server, while this one processes it entirely on your device.</p></details>
+      <details><summary>Do I need to sign up to reorder pages?</summary><p>No signup, no account, and no email address required.</p></details>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;padding:20px 0;">
+    <script>
+      atOptions = {
+        'key' : '566e9eb29277da62596bafd4097ee973',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/566e9eb29277da62596bafd4097ee973/invoke.js"></script>
+  </div>
+</div>
+
+<footer>Made with ❤️ by GH Jamali · MyPDFConvert</footer>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="reorder.js"></script>
+</body>
+  </html>
